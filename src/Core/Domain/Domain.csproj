@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Nullable>enable</Nullable>
+		<TargetFramework>net9.0</TargetFramework>
+		<!--<ImplicitUsings>enable</ImplicitUsings>-->
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Folder Include="Features\Cms\Enumerations\" />
+		<Folder Include="Features\Identity\Enumerations\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Resources\Resources.csproj" />
+		<ProjectReference Include="..\..\Framework\Dtat\Dtat.csproj" />
+		<ProjectReference Include="..\..\Framework\Dtat.Seedwork.Abstractions\Dtat.Seedwork.Abstractions.csproj" />
+	</ItemGroup>
+
+</Project>
