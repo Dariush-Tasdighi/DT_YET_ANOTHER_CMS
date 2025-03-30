@@ -14,6 +14,7 @@ public class ApplicationDbContext : DbContext
 	public DbSet<User> Users { get; set; }
 	public DbSet<Role> Roles { get; set; }
 
+	public DbSet<Page> Pages { get; set; }
 	public DbSet<MenuItem> MenuItems { get; set; }
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

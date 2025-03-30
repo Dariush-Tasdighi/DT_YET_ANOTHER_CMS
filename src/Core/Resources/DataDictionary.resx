@@ -130,16 +130,16 @@
     <value>First Name</value>
   </data>
   <data name="FullName" xml:space="preserve">
-    <value>Full Name</value>
+    <value>نام و نام خانوادگی</value>
   </data>
   <data name="IP4Address" xml:space="preserve">
     <value>IP4 Address</value>
   </data>
   <data name="LastName" xml:space="preserve">
-    <value>Last Name</value>
+    <value>نام خانوادگی</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Name</value>
+    <value>نام</value>
   </data>
   <data name="Origin" xml:space="preserve">
     <value>Origin</value>

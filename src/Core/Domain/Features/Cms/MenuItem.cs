@@ -19,7 +19,9 @@ public class MenuItem(string title) : Entity,
 
 	public bool IsEnabled { get; set; }
 
-	// TODO
+	/// <summary>
+	/// TODO
+	/// </summary>
 	public long Ordering { get; set; } = 10_000;
 
 	[Required(AllowEmptyStrings = false)]

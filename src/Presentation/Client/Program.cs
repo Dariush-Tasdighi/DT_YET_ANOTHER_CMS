@@ -12,11 +12,11 @@ applicationDbContext.Add(entity: administratorRole);
 
 await applicationDbContext.SaveChangesAsync();
 
-var administrator = new User(roleId: administratorRole.Id, username: "dariush", password: "1234512345", emailAddress: "DariushT@Gmail.com");
-applicationDbContext.Add(entity: administrator);
-
 var user = new User(roleId: userRole.Id, username: "alirezaalavi", password: "1234512345", emailAddress: "AliRezaAlavi@Gmail.com");
 applicationDbContext.Add(entity: user);
+
+var administrator = new User(roleId: administratorRole.Id, username: "dariush", password: "1234512345", emailAddress: "DariushT@Gmail.com");
+applicationDbContext.Add(entity: administrator);
 
 await applicationDbContext.SaveChangesAsync();
 

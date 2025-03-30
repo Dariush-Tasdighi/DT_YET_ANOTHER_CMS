@@ -21,6 +21,7 @@ public class User(Guid roleId, string username, string password, string emailAdd
 	[Required(AllowEmptyStrings = false)]
 	[MaxLength(length: Constant.MaxLength.Username)]
 	public string Username { get; set; } = username;
+	//public string Username { get; init; } = username;
 
 	[Required(AllowEmptyStrings = false)]
 	//[MaxLength(length: Constant.MaxLength.Password)]

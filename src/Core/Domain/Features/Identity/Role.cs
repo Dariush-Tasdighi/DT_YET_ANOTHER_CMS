@@ -16,11 +16,19 @@ public class Role(string name, long code, string title) : Entity,
 {
 	public bool IsActive { get; set; }
 
+	/// <summary>
+	/// TODO
+	/// </summary>
 	public long Code { get; set; } = code;
 
-	// TODO
+	/// <summary>
+	/// TODO
+	/// </summary>
 	public long Ordering { get; set; } = 10_000;
 
+	/// <summary>
+	/// TODO
+	/// </summary>
 	[Required(AllowEmptyStrings = false)]
 	[MaxLength(length: Constant.MaxLength.Name)]
 	public string Name { get; set; } = name;
