@@ -1,0 +1,175 @@
+﻿@* @using Microsoft.EntityFrameworkCore;
+
+@inject Persistence.DatabaseContext DatabaseContext
+@inject Services.Features.Common.ApplicationSettingService ApplicationSettingService
+
+@{
+	// **************************************************
+	var layoutId =
+		ViewData[Constants.ViewDataKeyName.LayoutId];
+
+	if (layoutId is null)
+	{
+		return;
+	}
+
+	var layoutIdString =
+		layoutId.ToString();
+
+	if (string.IsNullOrWhiteSpace(value: layoutIdString))
+	{
+		return;
+	}
+
+	var layoutIdGuid =
+		new System.Guid(g: layoutIdString);
+
+	var layout =
+		await
+		DatabaseContext.Layouts
+		.Where(current => current.Id == layoutIdGuid)
+		.FirstOrDefaultAsync();
+
+	if (layout is null)
+	{
+		return;
+	}
+	// **************************************************
+
+	// **************************************************
+	var applicationSetting =
+		await
+		ApplicationSettingService.GetInstanceAsync();
+
+	var themeName =
+		applicationSetting.ThemeName;
+
+	if (layout.Theme is not null)
+	{
+		themeName =
+			layout.ThemeName;
+	}
+	// **************************************************
+
+	// **************************************************
+	var currentCulture =
+		System.Threading.Thread
+		.CurrentThread.CurrentUICulture;
+
+	var currentCultureName = currentCulture.Name;
+
+	var dir = "ltr";
+
+	if (currentCulture.Parent.TextInfo.IsRightToLeft)
+	{
+		dir = "rtl";
+	}
+	// **************************************************
+}
+
+<!doctype html>
+
+<html lang="@(currentCultureName)" dir="@(dir)" data-bs-theme="@(themeName)">
+
+<head>
+
+	<partial name="PartialViews/_Seo" />
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<partial name="PartialViews/_OpenGraph" />
+
+	<partial name="PartialViews/_FavoriteIcon" />
+
+	<partial name="PartialViews/_StyleSheets" />
+
+	@(await RenderSectionAsync(name: "StyleSheets", required: false))
+
+	@if (string.IsNullOrWhiteSpace(value: layout.CustomStyleSheets) == false)
+	{
+		@(Html.Raw(value: layout.CustomStyleSheets))
+	}
+
+</head>
+
+<body>
+
+	<partial name="PartialViews/_DisplayToastMessages" />
+
+	@if (layout.DisplayDefaultMenu1)
+	{
+		<partial name="PartialViews/Navbars/_NavbarMain" />
+	}
+
+	@if (layout.DisplayDefaultMenu2)
+	{
+		<partial name="PartialViews/Navbars/_NavbarDynamic" />
+	}
+
+	@if (layout.DisplayDefaultMenu3)
+	{
+		<partial name="PartialViews/Navbars/_NavbarAuthorized" />
+	}
+
+	<div class="@(layout.ContainerCssClass)">
+
+		@if (string.IsNullOrWhiteSpace(value: layout.TopBody) == false)
+		{
+			@(Html.Raw(value: layout.TopBody))
+		}
+
+		@if (string.IsNullOrWhiteSpace(value: layout.StartCssClass) &&
+				string.IsNullOrWhiteSpace(value: layout.MainCssClass) &&
+				string.IsNullOrWhiteSpace(value: layout.EndCssClass))
+		{
+			@(RenderBody())
+		}
+		else
+		{
+			<div class="row">
+
+				@if (string.IsNullOrWhiteSpace(value: layout.StartCssClass))
+				{
+					<div class="@(layout.StartCssClass)">
+						@(Html.Raw(value: layout.StartBody))
+					</div>
+				}
+
+				<div class="@(layout.MainCssClass)">
+					@(RenderBody())
+				</div>
+
+				@if (string.IsNullOrWhiteSpace(value: layout.EndCssClass))
+				{
+					<div class="@(layout.EndCssClass)">
+						@(Html.Raw(value: layout.EndBody))
+					</div>
+				}
+
+			</div>
+		}
+
+		@if (string.IsNullOrWhiteSpace(value: layout.BottomBody) == false)
+		{
+			@(Html.Raw(value: layout.BottomBody))
+		}
+
+	</div>
+
+	@if (layout.DisplayDefaultFooter)
+	{
+		<partial name="PartialViews/_Footer" />
+	}
+
+	<partial name="PartialViews/_Scripts" />
+
+	@(await RenderSectionAsync(name: "Scripts", required: false))
+
+	@if (string.IsNullOrWhiteSpace(value: layout.CustomScripts) == false)
+	{
+		@(Html.Raw(value: layout.CustomScripts))
+	}
+</body>
+</html>
+ *@

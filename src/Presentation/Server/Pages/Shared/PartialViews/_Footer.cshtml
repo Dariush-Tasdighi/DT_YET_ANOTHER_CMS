@@ -1,0 +1,37 @@
+﻿@inject Services.Features.Common.ApplicationSettingService ApplicationSettingService
+
+@{
+	var applicationSetting =
+		await
+		ApplicationSettingService.GetInstanceAsync();
+}
+
+<footer class="footer border-top py-2 text-muted bg-@(applicationSetting.ThemeName) fixed-bottom">
+
+	<div class="container text-muted">
+
+		<environment include="Development" exclude="Production">
+			Development Mode
+		</environment>
+
+		<small>
+			<a href="https://IranianExperts.ir" class="text-decoration-none">
+				[Powered by DT CMS]
+			</a>
+		</small>
+
+		@if (string.IsNullOrWhiteSpace(value: applicationSetting.Copyright) == false)
+		{
+			@(Html.Raw(applicationSetting.Copyright))
+		}
+
+		@if (string.IsNullOrWhiteSpace(value: applicationSetting.ApplicationVersioin) == false)
+		{
+			@(Html.Raw(applicationSetting.ApplicationVersioin))
+			<text>&nbsp;</text>
+@* 			@(Dtat.StringHelper.ConvertDigitsToUnicode(value: Infrastructure.Version.Value))
+ *@		}
+
+	</div>
+
+</footer>

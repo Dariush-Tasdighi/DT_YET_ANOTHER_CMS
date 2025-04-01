@@ -1,0 +1,60 @@
+﻿@inject Services.Features.Common.HttpContextService HttpContextService
+@inject Services.Features.Common.LocalizedHomePageSettingService LocalizedHomePageSettingService
+
+@{
+	var localizedHomePageSetting =
+		await
+		LocalizedHomePageSettingService.GetInstanceAsync();
+
+	var siteTitle = localizedHomePageSetting.Title;
+
+	var pageTitle = ViewData[Constants.ViewDataKeyName.PageTitle] as string;
+
+	var pageAuthor = ViewData[Constants.ViewDataKeyName.PageAuthor] as string;
+
+	var pageImageUrl = ViewData[Constants.ViewDataKeyName.PageImageUrl] as string;
+
+	var pageKeywords = ViewData[Constants.ViewDataKeyName.PageKeywords] as string;
+
+	var pageDescription = ViewData[Constants.ViewDataKeyName.PageDescription] as string;
+
+	var siteUrl =
+		HttpContextService.GetCurrentHostUrl();
+
+	if (string.IsNullOrWhiteSpace(value: pageImageUrl) == false)
+	{
+		if (pageImageUrl.ToLower().StartsWith(value: "http") == false)
+		{
+			pageImageUrl =
+				$"{siteUrl}\\{pageImageUrl}";
+		}
+	}
+}
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="@(siteUrl)" />
+
+@if (string.IsNullOrWhiteSpace(value: siteTitle) == false)
+{
+	<meta property="og:site_name" content="@(siteTitle)" />
+}
+
+@if (string.IsNullOrWhiteSpace(value: pageImageUrl) == false)
+{
+	@*<meta property="og:image:width" content="800" />
+	@*<meta property="og:image:height" content="800" />*@
+
+	<meta property="og:image" content="@(pageImageUrl)" />
+	<meta property="og:image:alt" content="@(pageTitle)" />
+}
+
+@if (string.IsNullOrWhiteSpace(value: pageTitle) == false)
+{
+	<meta property="og:title" content="@(pageTitle)" />
+}
+
+@if (string.IsNullOrWhiteSpace(value: pageDescription) == false)
+{
+	<meta property="og:description" content="@(pageDescription)" />
+}
+ *@

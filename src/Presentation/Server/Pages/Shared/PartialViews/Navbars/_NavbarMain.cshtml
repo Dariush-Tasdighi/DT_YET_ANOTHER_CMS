@@ -1,0 +1,143 @@
+﻿@* @inject Infrastructure.Security.AuthenticatedUserService AuthenticatedUserService
+@inject Services.Features.Common.ApplicationSettingService applicationSettingService
+@inject Services.Features.Common.LocalizedApplicationSettingService localizedApplicationSettingService
+
+@{
+	var applicationSetting =
+		await
+		applicationSettingService.GetInstanceAsync();
+
+	var localizedApplicationSetting =
+		await
+		localizedApplicationSettingService.GetInstanceAsync();
+
+	if (AuthenticatedUserService.IsAuthenticated == false)
+	{
+		if (applicationSetting.IsLoginVisible == false &&
+			applicationSetting.IsContactUsEnabled == false &&
+			applicationSetting.IsRegistrationEnabled == false &&
+			applicationSetting.IsSearchInNavbarEnabled == false)
+		{
+			return;
+		}
+	}
+
+	var currentUICultureName = Domain.Features
+		.Common.CultureEnumHelper.GetCurrentUICultureName();
+}
+
+<div class="container">
+	<header>
+		<nav class="navbar navbar-expand-md border-bottom pt-0 pb-0">
+
+			<div class="container">
+
+				@{
+					if (string.IsNullOrWhiteSpace(value: localizedApplicationSetting.NavbarBrandText) &&
+					string.IsNullOrWhiteSpace(value: localizedApplicationSetting.NavbarBrandImageUrl))
+					{
+						// که هیچی
+					}
+					else
+					{
+						if (string.IsNullOrWhiteSpace(value: localizedApplicationSetting.NavbarBrandText))
+						{
+							<a class="navbar-brand" asp-page="@(Constants.CommonRouting.RootIndex)">
+								<img src="@(localizedApplicationSetting.NavbarBrandImageUrl)" alt="Logo" width="30" height="24">
+							</a>
+						}
+						else
+						{
+							if (string.IsNullOrWhiteSpace(value: localizedApplicationSetting.NavbarBrandImageUrl))
+							{
+								<a class="navbar-brand" asp-page="@(Constants.CommonRouting.RootIndex)">
+									@(localizedApplicationSetting.NavbarBrandText)
+								</a>
+							}
+							else
+							{
+								<a class="navbar-brand" asp-page="@(Constants.CommonRouting.RootIndex)">
+									<img src="@(localizedApplicationSetting.NavbarBrandImageUrl)" alt="@(localizedApplicationSetting.NavbarBrandText)" width="30" height="24" class="d-inline-block align-text-top">
+									@(localizedApplicationSetting.NavbarBrandText)
+								</a>
+							}
+						}
+					}
+				}
+
+				<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarMain">
+
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+						@if (applicationSetting.IsContactUsEnabled)
+						{
+							<li class="nav-item">
+								<a class="nav-link" asp-page="/Contact">
+									@(Resources.PageTitles.Contact)
+								</a>
+							</li>
+						}
+
+						@if (AuthenticatedUserService.IsAuthenticated)
+						{
+							<li class="nav-item">
+								<a class="nav-link" asp-page="/Account/AuthenticatedUserInformation">
+									[@(User.Identity!.Name)]
+								</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" asp-page="/Account/Logout">
+									@(Resources.PageTitles.Logout)
+								</a>
+							</li>
+						}
+						else
+						{
+							@if (applicationSetting.IsRegistrationEnabled)
+							{
+								<li class="nav-item">
+									<a class="nav-link" asp-page="/Account/Register">
+										@(Resources.PageTitles.Register)
+									</a>
+								</li>
+							}
+
+							@if (applicationSetting.IsLoginVisible)
+							{
+								<li class="nav-item">
+									<a class="nav-link" asp-page="/Account/Login">
+										@(Resources.PageTitles.Login)
+									</a>
+								</li>
+							}
+						}
+
+					</ul>
+
+					@if (applicationSetting.IsSearchInNavbarEnabled)
+					{
+						<form method="get" action="~/posts" class="d-flex mx-3 py-1" role="search">
+							<input type="hidden" id="culture" name="culture" value="@(currentUICultureName)" />
+							<input type="search" id="keywords" name="keywords" class="form-control me-2" placeholder="@(Resources.ButtonCaptions.Search)" aria-label="Search" />
+							<button type="submit" class="btn btn-outline-success">
+								@(Resources.ButtonCaptions.Search)
+							</button>
+						</form>
+					}
+
+					<partial name="PartialViews/Navbars/_NavbarCulture" />
+
+				</div>
+
+			</div>
+
+		</nav>
+
+	</header>
+</div>
+ *@

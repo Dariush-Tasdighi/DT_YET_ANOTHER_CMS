@@ -1,4 +1,5 @@
 ﻿using Domain.Features.Cms;
+using Domain.Features.Common;
 using Domain.Features.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,7 +9,26 @@ public class ApplicationDbContext : DbContext
 {
 	public ApplicationDbContext() : base()
 	{
+		// تا قبل از اولین نسخه اصلی
 		Database.EnsureCreated();
+	}
+
+	public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options: options)
+	{
+		// تا قبل از اولین نسخه اصلی
+		Database.EnsureCreated();
+
+		// نوشتن دستورات ذیل کامل غلط است
+		// لااقل در اولین باری که بانک‌اطلاعاتی
+		// می‌خواهد ایجاد شود، کار نمی‌کند
+		//// using Microsoft.EntityFrameworkCore;
+		//if (Database.GetAppliedMigrations().Any())
+		//{
+		//	// using Microsoft.EntityFrameworkCore;
+		//	Database.Migrate();
+		//}
+
+		//Database.Migrate();
 	}
 
 	public DbSet<User> Users { get; set; }
@@ -16,6 +36,8 @@ public class ApplicationDbContext : DbContext
 
 	public DbSet<Page> Pages { get; set; }
 	public DbSet<MenuItem> MenuItems { get; set; }
+
+	public DbSet<ApplicationSetting> ApplicationSettings { get; set; }
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	{

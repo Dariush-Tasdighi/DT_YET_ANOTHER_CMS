@@ -1,0 +1,67 @@
+﻿@* @inject Services.Features.Common.ApplicationSettingService ApplicationSettingService
+ *@
+
+@{
+	// var applicationSetting =
+	// 	await
+	// 	ApplicationSettingService.GetInstanceAsync();
+
+	// var currentCulture =
+	// 	System.Threading.Thread
+	// 	.CurrentThread.CurrentUICulture;
+
+	// var currentCultureName = currentCulture.Name;
+
+	// var dir = "ltr";
+
+	// if (currentCulture.Parent.TextInfo.IsRightToLeft)
+	// {
+	// 	dir = "rtl";
+	// }
+}
+
+<!doctype html>
+
+<html lang="fa" dir="rtl" data-bs-theme="dark">
+
+<head>
+
+	<partial name="PartialViews/_Seo" />
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<partial name="PartialViews/_OpenGraph" />
+
+	<partial name="PartialViews/_FavoriteIcon" />
+
+	<partial name="PartialViews/_StyleSheets" />
+
+	@(await RenderSectionAsync(name: "StyleSheets", required: false))
+
+</head>
+
+<body>
+
+	<partial name="PartialViews/_DisplayToastMessages" />
+
+	<partial name="PartialViews/Navbars/_NavbarMain" />
+	<partial name="PartialViews/Navbars/_NavbarDynamic" />
+	<partial name="PartialViews/Navbars/_NavbarAuthorized" />
+
+	<partial name="Features/Cms/PartialViews/_DisplaySlides" />
+
+	<main class="mt-3 mb-5 pb-5">
+		<div class="container">
+			@(RenderBody())
+		</div>
+	</main>
+
+	<partial name="PartialViews/_Footer" />
+
+	<partial name="PartialViews/_Scripts" />
+
+	@(await RenderSectionAsync(name: "Scripts", required: false))
+
+</body>
+</html>

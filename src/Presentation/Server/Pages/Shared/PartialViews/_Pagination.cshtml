@@ -1,0 +1,143 @@
+﻿@* @using Dtat;
+
+@model ViewModels.Shared.PaginationViewModel
+
+@{
+	var list = new System.Collections.Generic
+		.List<ViewModels.Shared.IdNameViewModel<int>>();
+
+	foreach (var item in Model.PageSizes)
+	{
+		var name = item.ConvertDigitsToUnicode();
+
+		var idNameViewModel = new ViewModels.Shared
+			.IdNameViewModel<int>(id: item, keyName: name);
+
+		list.Add(item: idNameViewModel);
+	}
+
+	var pageSizes =
+		new Microsoft.AspNetCore.Mvc.Rendering
+		.SelectList(items: list, selectedValue: Model.PageIndex,
+		dataTextField: ViewModels.Shared.IdNameViewModel<int>.DataTextField,
+		dataValueField: ViewModels.Shared.IdNameViewModel<int>.DataValueField);
+}
+
+<input type="hidden" asp-for="PageIndex" />
+<input type="hidden" asp-for="RecordCount" />
+
+<div class="row">
+
+	<div class="col-lg-4">
+
+		<nav aria-label="...">
+			<ul class="pagination justify-content-center">
+
+				@if (Model.PageIndex == 1)
+				{
+					<li class="page-item disabled">
+						<button type="submit" class="page-link" asp-page-handler="GoToFirst">
+							@(Resources.DataDictionary.First)
+						</button>
+					</li>
+
+					<li class="page-item disabled">
+						<button type="submit" class="page-link" asp-page-handler="GoToPrevious">
+							@(Resources.DataDictionary.Previous)
+						</button>
+					</li>
+				}
+				else
+				{
+					<li class="page-item">
+						<button type="submit" class="page-link" asp-page-handler="GoToFirst">
+							@(Resources.DataDictionary.First)
+						</button>
+					</li>
+
+					<li class="page-item">
+						<button type="submit" class="page-link" asp-page-handler="GoToPrevious">
+							@(Resources.DataDictionary.Previous)
+						</button>
+					</li>
+				}
+
+				<li class="page-item active" aria-current="page">
+					<span class="page-link">
+						@(Html.DtatDisplayInteger(value: Model.PageIndex))
+					</span>
+				</li>
+
+				@if (Model.PageIndex >= Model.PageCount)
+				{
+					<li class="page-item disabled">
+						<button type="submit" class="page-link" asp-page-handler="GoToNext">
+							@(Resources.DataDictionary.Next)
+						</button>
+					</li>
+
+					<li class="page-item disabled">
+						<button type="submit" class="page-link" asp-page-handler="GoToLast">
+							@(Resources.DataDictionary.Last)
+						</button>
+					</li>
+				}
+				else
+				{
+					<li class="page-item">
+						<button type="submit" class="page-link" asp-page-handler="GoToNext">
+							@(Resources.DataDictionary.Next)
+						</button>
+					</li>
+
+					<li class="page-item">
+						<button type="submit" class="page-link" asp-page-handler="GoToLast">
+							@(Resources.DataDictionary.Last)
+						</button>
+					</li>
+				}
+			</ul>
+		</nav>
+
+	</div>
+
+	<div class="col-lg-4">
+
+		<div class="input-group">
+			<span class="input-group-text">@(Resources.DataDictionary.PageSize)</span>
+			<select asp-for="PageSize" asp-items="pageSizes" class="form-select" onchange="submitFormAfterChangingPageSizeSelect()"></select>
+		</div>
+
+	</div>
+
+	<div class="col-lg-4 pt-1 text-center">
+
+		@(Resources.DataDictionary.RecordCount):
+		@(Html.DtatDisplayInteger(value: Model.RecordCount))
+
+		<i class="bi bi-grip-vertical"></i>
+
+		@(Resources.DataDictionary.PageCount):
+		@(Html.DtatDisplayInteger(value: Model.PageCount))
+
+	</div>
+</div>
+
+<script>
+
+	function submitFormAfterChangingPageSizeSelect() {
+
+		var pageSizeElement =
+			document.getElementById('ViewModel_Pagination_PageSize')
+
+		if (pageSizeElement) {
+
+			pageSizeElement.form.action = '?handler=GoToFirst'
+			pageSizeElement.form.submit()
+
+		}
+
+	}
+
+</script>
+ *@

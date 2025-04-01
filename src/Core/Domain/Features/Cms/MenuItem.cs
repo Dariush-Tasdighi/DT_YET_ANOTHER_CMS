@@ -17,7 +17,21 @@ public class MenuItem(string title) : Entity,
 
 	public bool IsVisible { get; set; }
 
-	public bool IsEnabled { get; set; }
+	/// <summary>
+	/// نمایش داده می‌شود ولی غیرفعال دیده می‌شود
+	/// </summary>
+	//[System.ComponentModel.DataAnnotations.Display
+	//	(ResourceType = typeof(Resources.DataDictionary),
+	//	Name = nameof(Resources.DataDictionary.IsDisabled))]
+	public bool IsDisabled { get; set; }
+
+	/// <summary>
+	/// وضعیت
+	/// </summary>
+	//[System.ComponentModel.DataAnnotations.Display
+	//	(ResourceType = typeof(Resources.DataDictionary),
+	//	Name = nameof(Resources.DataDictionary.OpenUrlInNewWindow))]
+	public bool OpenUrlInNewWindow { get; set; }
 
 	/// <summary>
 	/// TODO
@@ -28,7 +42,21 @@ public class MenuItem(string title) : Entity,
 	[MaxLength(length: 100)]
 	public string Title { get; set; } = title;
 
-	public string? Url { get; set; }
+	/// <summary>
+	/// لینک مقصد
+	/// </summary>
+	//[System.ComponentModel.DataAnnotations.Display
+	//	(ResourceType = typeof(Resources.DataDictionary),
+	//	Name = nameof(Resources.DataDictionary.NavigationUrl))]
+	public string? NavigationUrl { get; set; }
+
+	/// <summary>
+	/// توضیحات
+	/// </summary>
+	[System.ComponentModel.DataAnnotations.Display
+		(ResourceType = typeof(Resources.DataDictionary),
+		Name = nameof(Resources.DataDictionary.Description))]
+	public string? Description { get; set; }
 
 	[DatabaseGenerated(databaseGeneratedOption: DatabaseGeneratedOption.None)]
 	public DateTimeOffset UpdateDateTime { get; set; }

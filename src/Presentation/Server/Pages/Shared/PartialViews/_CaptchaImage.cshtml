@@ -1,0 +1,48 @@
+﻿@* @inject Services.Features.Common.ApplicationSettingService ApplicationSettingService
+
+@{
+	var applicationSetting =
+		await
+		ApplicationSettingService.GetInstanceAsync();
+
+	if (applicationSetting.IsCaptchaImageEnabled == false)
+	{
+		return;
+	}
+
+	var minString = "1";
+	var maxString = "9";
+
+	for (var index = 1; index <= applicationSetting.DigitCountInCaptchaImage - 1; index++)
+	{
+		minString += "0";
+		maxString += "9";
+	}
+
+	var minInt = System
+		.Convert.ToInt32(minString);
+
+	var maxInt = System
+		.Convert.ToInt32(maxString);
+}
+
+<div class="mb-3">
+	<dnt-captcha asp-captcha-generator-max="maxInt"
+				 asp-captcha-generator-min="minInt"
+				 asp-captcha-generator-language="English"
+				 asp-captcha-generator-display-mode="ShowDigits"
+				 asp-use-relative-urls="true"
+				 asp-placeholder="Security Code"
+				 asp-validation-error-message="@(Resources.Messages.Errors.CaptchaImage)"
+				 asp-font-name="Verdana"
+				 asp-font-size="36"
+				 asp-fore-color="#333333"
+				 asp-back-color="#FCF6F5FF"
+				 asp-text-box-class="form-control"
+				 asp-text-box-template="<div class='input-group'><span class='input-group-text'><span class='bi bi-lock'></span></span>{0}</div>"
+				 asp-validation-message-class="text-danger"
+				 asp-refresh-button-class="bi-arrow-counterclockwise btn-lg"
+				 asp-show-refresh-button="true"
+				 asp-dir="ltr" />
+</div>
+ *@

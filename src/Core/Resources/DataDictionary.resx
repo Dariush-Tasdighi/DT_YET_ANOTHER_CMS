@@ -118,16 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CellPhoneNumber" xml:space="preserve">
-    <value>Cell Phone Number</value>
+    <value>شماره تلفن همراه</value>
   </data>
   <data name="Code" xml:space="preserve">
-    <value>Code</value>
+    <value>کد</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>توضیحات</value>
   </data>
   <data name="EmailAddress" xml:space="preserve">
-    <value>Email address</value>
+    <value>نشانی پست الکترونیکی</value>
   </data>
   <data name="FirstName" xml:space="preserve">
-    <value>First Name</value>
+    <value>نام</value>
   </data>
   <data name="FullName" xml:space="preserve">
     <value>نام و نام خانوادگی</value>
@@ -145,12 +148,15 @@
     <value>Origin</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Password</value>
+    <value>گذرواژه</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Title</value>
+    <value>عنوان</value>
+  </data>
+  <data name="UpdateDateTime" xml:space="preserve">
+    <value>زمان ویرایش</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>Username</value>
+    <value>شناسه کاربری</value>
   </data>
 </root>

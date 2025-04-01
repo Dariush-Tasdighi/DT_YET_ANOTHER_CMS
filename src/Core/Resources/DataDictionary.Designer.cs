@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cell Phone Number.
+        ///   Looks up a localized string similar to شماره تلفن همراه.
         /// </summary>
         public static string CellPhoneNumber {
             get {
@@ -70,7 +70,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Code.
+        ///   Looks up a localized string similar to کد.
         /// </summary>
         public static string Code {
             get {
@@ -79,7 +79,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email address.
+        ///   Looks up a localized string similar to توضیحات.
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نشانی پست الکترونیکی.
         /// </summary>
         public static string EmailAddress {
             get {
@@ -88,7 +97,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to First Name.
+        ///   Looks up a localized string similar to نام.
         /// </summary>
         public static string FirstName {
             get {
@@ -142,7 +151,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password.
+        ///   Looks up a localized string similar to گذرواژه.
         /// </summary>
         public static string Password {
             get {
@@ -151,7 +160,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Title.
+        ///   Looks up a localized string similar to عنوان.
         /// </summary>
         public static string Title {
             get {
@@ -160,7 +169,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username.
+        ///   Looks up a localized string similar to زمان ویرایش.
+        /// </summary>
+        public static string UpdateDateTime {
+            get {
+                return ResourceManager.GetString("UpdateDateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to شناسه کاربری.
         /// </summary>
         public static string Username {
             get {

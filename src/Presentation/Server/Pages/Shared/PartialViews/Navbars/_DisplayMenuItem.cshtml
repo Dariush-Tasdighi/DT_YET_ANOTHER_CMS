@@ -1,0 +1,54 @@
+﻿@using Domain.Features.Cms
+
+@model MenuItem
+
+@{
+	if (Model.IsVisible == false)
+	{
+		return;
+	}
+
+	var title = Model.Title.Trim();
+
+	if (title == "-")
+	{
+		<li><hr class="dropdown-divider"></li>
+
+		return;
+	}
+
+	if (Model.IsDisabled)
+	{
+		<li class="nav-item">
+			<a class="nav-link disabled">
+				@(Html.Raw(value: title))
+			</a>
+		</li>
+
+		return;
+	}
+
+	var target = "_self";
+	if (Model.OpenUrlInNewWindow)
+	{
+		target = "_blank";
+	}
+
+	var className = "nav-link";
+	if (Model.ParentId is not null)
+	{
+		className = "dropdown-item";
+	}
+
+	var navigationUrl = Model.NavigationUrl;
+	if (string.IsNullOrWhiteSpace(value: navigationUrl))
+	{
+		navigationUrl = "#";
+	}
+
+	<li class="nav-item">
+		<a href="@(Model.NavigationUrl)" class="@(className)" target="@(target)">
+			@(Html.Raw(value: title))
+		</a>
+	</li>
+}

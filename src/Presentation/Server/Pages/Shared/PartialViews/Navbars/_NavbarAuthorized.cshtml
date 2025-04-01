@@ -1,0 +1,45 @@
+﻿@* @inject Infrastructure.Security.AuthenticatedUserService AuthenticatedUserService
+
+@if (AuthenticatedUserService.IsAuthenticated == false)
+{
+	return;
+}
+
+<div class="container">
+	<header>
+		<nav class="navbar navbar-expand-md border-bottom pt-0 pb-0">
+
+			<div class="container">
+
+				<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarAuthorized" aria-controls="navbarAuthorized" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarAuthorized">
+
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+						<partial name="/Pages/Features/Identity/PartialViews/_Navbar.cshtml" />
+
+						<li class="nav-item">
+							<a class="nav-link" asp-page="/Features/Cms/User/Posts/Index">
+								@(Resources.PageTitles.MyPosts)
+							</a>
+						</li>
+
+						<partial name="/Pages/Features/Common/PartialViews/_Navbar.cshtml" />
+
+						<partial name="/Pages/Features/Identity/PartialViews/_NavbarAdmin.cshtml" />
+
+						<partial name="/Pages/Features/Cms/PartialViews/_Navbar.cshtml" />
+
+					</ul>
+
+				</div>
+
+			</div>
+
+		</nav>
+	</header>
+</div>
+ *@

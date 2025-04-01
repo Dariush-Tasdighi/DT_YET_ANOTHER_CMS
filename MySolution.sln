@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{0744D5CF-E747-4228-BB04-D22692490471}"
+	ProjectSection(SolutionItems) = preProject
+		docs\Readme.docx = docs\Readme.docx
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7703FF0B-669E-41AD-BFE2-A9E19D23E340}"
 EndProject
@@ -32,6 +35,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "src\Infrastructure\Persistence\Persistence.csproj", "{23AF0761-D6B4-4A66-9062-3BF885EC233A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtat", "src\Framework\Dtat\Dtat.csproj", "{7A3C6788-E3DE-4238-9836-2B7A6D761C5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "src\Presentation\Server\Server.csproj", "{4BADC33B-0E96-4B3F-B32A-B9CCE2A104BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +76,10 @@ Global
 		{7A3C6788-E3DE-4238-9836-2B7A6D761C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A3C6788-E3DE-4238-9836-2B7A6D761C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A3C6788-E3DE-4238-9836-2B7A6D761C5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BADC33B-0E96-4B3F-B32A-B9CCE2A104BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BADC33B-0E96-4B3F-B32A-B9CCE2A104BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BADC33B-0E96-4B3F-B32A-B9CCE2A104BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BADC33B-0E96-4B3F-B32A-B9CCE2A104BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,6 +97,7 @@ Global
 		{1B5E94A2-27BB-42BA-A229-D903E4AAAA82} = {88A542AD-B454-46D9-85CB-3FEAD28CF0D4}
 		{23AF0761-D6B4-4A66-9062-3BF885EC233A} = {88A542AD-B454-46D9-85CB-3FEAD28CF0D4}
 		{7A3C6788-E3DE-4238-9836-2B7A6D761C5A} = {6814866A-740A-4FD6-AFEE-BEA77470C1F3}
+		{4BADC33B-0E96-4B3F-B32A-B9CCE2A104BB} = {4190C080-20E1-40DB-8780-0BCD7830CA8F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DE9DEFA-9E1A-4CB4-9201-00FD0B833AC2}

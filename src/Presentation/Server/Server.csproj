@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="Pages\Shared\PartialViews\_OpenGraph.cshtml.bak" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Infrastructure\Infrastructure\Infrastructure.csproj" />
+		<ProjectReference Include="..\..\Infrastructure\Persistence\Persistence.csproj" />
+	</ItemGroup>
+
+</Project>

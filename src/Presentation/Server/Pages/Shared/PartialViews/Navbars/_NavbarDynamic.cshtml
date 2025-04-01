@@ -1,0 +1,78 @@
+﻿@*
+https://getbootstrap.com/docs/5.3/components/navbar/
+*@
+
+@using Persistence
+@using Microsoft.EntityFrameworkCore;
+
+@inject ApplicationDbContext applicationDbContext
+
+@{
+	var menuItems =
+		await
+		applicationDbContext.MenuItems
+
+		.Include(current => current.Children)
+
+		.Where(current => current.IsVisible)
+		.Where(current => current.ParentId == null)
+
+		.OrderBy(current => current.Ordering)
+		.ThenBy(current => current.Title)
+
+		.ToListAsync()
+		;
+
+	if (menuItems.Count == 0)
+	{
+		return;
+	}
+}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+	<div class="container">
+		@*
+		<a class="navbar-brand" href="#">منو</a>
+		*@
+
+		<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarDynamic" aria-controls="navbarDynamic" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarDynamic">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				@foreach (var menuItem in menuItems)
+				{
+					if (menuItem.Children.Count == 0)
+					{
+						<partial name="PartialViews/Navbars/_DisplayMenuItem" , model="menuItem" />
+						continue;
+					}
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							@(Html.Raw(value: menuItem.Title))
+						</a>
+
+						<ul class="dropdown-menu mt-0">
+							@{
+								var children =
+								menuItem.Children
+								.Where(current => current.IsVisible)
+								.OrderBy(current => current.Ordering)
+								.ThenBy(current => current.Title)
+								.ToList()
+								;
+
+								foreach (var subMenuItem in children)
+								{
+									<partial name="PartialViews/Navbars/_DisplayMenuItem" , model="subMenuItem" />
+								}
+							}
+						</ul>
+					</li>
+				}
+			</ul>
+		</div>
+	</div>
+</nav>

@@ -1,0 +1,112 @@
+﻿@{
+	bool ignoreRichTextBoxBool = true;
+
+	// var ignoreRichTextBox =
+	// 	ViewData[Constants.ViewDataKeyName.IgnoreRichTextBox];
+
+	// bool ignoreRichTextBoxBool = false;
+
+	// try
+	// {
+	// 	ignoreRichTextBoxBool =
+	// 		Convert.ToBoolean(value: ignoreRichTextBox);
+	// }
+	// catch { }
+}
+
+<environment include="Development" exclude="Production">
+
+	<script src="~/lib/popper.js/umd/popper.js"></script>
+	<script src="~/lib/bootstrap/js/bootstrap.bundle.js" asp-append-version="true"></script>
+
+	<script src="~/lib/jquery/jquery.js" asp-append-version="true"></script>
+	<script src="~/lib/jquery-validate/jquery.validate.js" asp-append-version="true"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
+	<script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js" asp-append-version="true"></script>
+
+	@if (ignoreRichTextBoxBool == false)
+	{
+		<script src="~/lib/tinymce/tinymce.min.js" asp-append-version="true"></script>
+		<script src="~/lib/prism/prism.js" asp-append-version="true"></script>
+		<script src="~/lib/prism/components/prism-csharp.js" asp-append-version="true"></script>
+	}
+
+</environment>
+
+<environment include="Production" exclude="Development">
+
+	<script src="~/lib/popper.js/umd/popper.min.js"></script>
+	<script src="~/lib/bootstrap/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+
+	<script src="~/lib/jquery/jquery.min.js" asp-append-version="true"></script>
+	<script src="~/lib/jquery-validate/jquery.validate.min.js" asp-append-version="true"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" asp-append-version="true"></script>
+	<script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js" asp-append-version="true"></script>
+
+	@if (ignoreRichTextBoxBool == false)
+	{
+		<script src="~/lib/tinymce/tinymce.min.js" asp-append-version="true"></script>
+		<script src="~/lib/prism/prism.min.js" asp-append-version="true"></script>
+		<script src="~/lib/prism/components/prism-csharp.min.js" asp-append-version="true"></script>
+	}
+
+</environment>
+
+<script>
+	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+		return new bootstrap.Tooltip(tooltipTriggerEl)
+	})
+</script>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+@if (ignoreRichTextBoxBool == false)
+{
+	<script>
+
+		tinymce.init({
+
+			selector: 'textarea',
+
+			plugins: [
+				'advlist', 'anchor', 'autolink', 'autoresize', 'autosave', 'charmap', 'code',
+				'codesample', 'directionality', 'emoticons', 'fullscreen', 'help', 'image', 'importcss',
+				'insertdatetime', 'link', 'lists', 'media', 'nonbreaking', 'pagebreak', 'preview',
+				'save', 'searchreplace', 'table', 'template', 'visualblocks', 'visualchars',
+				'wordcount'
+
+				// مجاز است، ولی نیازی به آن‌ها ندارم
+				// 'quickbars',
+
+				// ظاهرا با نسخه رایگان کار نمی‌کند
+				// 'imagetools', 'textpattern', 'noneditable', 'print', 'hr', 'paste', 'toc',
+			],
+
+			toolbar1:
+				'undo redo | blocks | bold italic | alignleft aligncenter alignright alignjustify | media table | help',
+
+			toolbar2:
+				'ltr rtl | fontsize |  bullist numlist outdent indent | removeformat | forecolor backcolor | preview codesample code',
+
+			// مجاز است، ولی نیازی به آن‌ها نداریم
+			// fontfamily print
+
+		})
+
+	</script>
+
+	<script>
+
+		document.body.addEventListener('DOMSubtreeModified', function (event) {
+
+			// Remove TinyMCE Promotion!
+			document.querySelectorAll('.tox-promotion').forEach(el => el.remove())
+
+			// Remove TinyMCE Branding!
+			document.querySelectorAll('.tox-statusbar__branding').forEach(el => el.remove())
+
+		});
+
+	</script>
+}

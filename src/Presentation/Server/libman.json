@@ -1,0 +1,46 @@
+﻿{
+	"version": "1.0",
+	"defaultProvider": "cdnjs",
+	"libraries": [
+		{
+			"library": "bootstrap@5.3.3",
+			"destination": "wwwroot/lib/bootstrap/"
+		},
+		{
+			"library": "bootstrap-icons@1.11.3",
+			"destination": "wwwroot/lib/bootstrap-icons/"
+		},
+		{
+			"library": "jquery@3.7.1",
+			"destination": "wwwroot/lib/jquery/"
+		},
+		{
+			"library": "jquery-validate@1.21.0",
+			"destination": "wwwroot/lib/jquery-validate/"
+		},
+		{
+			"library": "jquery-validation-unobtrusive@4.0.0",
+			"destination": "wwwroot/lib/jquery-validation-unobtrusive/"
+		},
+		{
+			"library": "jquery-ajax-unobtrusive@3.2.6",
+			"destination": "wwwroot/lib/jquery-ajax-unobtrusive/"
+		},
+		{
+			"library": "tinymce@7.6.1",
+			"destination": "wwwroot/lib/tinymce/"
+		},
+		{
+			"library": "flag-icon-css@7.3.2",
+			"destination": "wwwroot/lib/flag-icon-css/"
+		},
+		{
+			"library": "popper.js@2.11.8",
+			"destination": "wwwroot/lib/popper.js/"
+		},
+		{
+			"library": "prism@9000.0.1",
+			"destination": "wwwroot/lib/prism/"
+		}
+	]
+}

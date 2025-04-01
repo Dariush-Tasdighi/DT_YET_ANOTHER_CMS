@@ -1,0 +1,32 @@
+﻿@* @using Dtat;
+
+@model ViewModels.Shared.SortingViewModel
+
+@if (Model.SelectList is null)
+{
+	return;
+}
+
+<div class="input-group mb-3">
+	<span class="input-group-text"><i class="bi bi-sort-up"></i>@(Resources.DataDictionary.OrderBy)<i class="bi bi-sort-down"></i></span>
+	<select asp-for="Expression" asp-items="Model.SelectList" class="form-select" onchange="submitFormAfterChangingPageSizeSelect()"></select>
+</div>
+
+<script>
+
+	function submitFormAfterChangingSortSelect() {
+
+		var pageSizeElement =
+			document.getElementById('ViewModel_Sorting_Expression')
+
+		if (pageSizeElement) {
+
+			pageSizeElement.form.action = '?handler=GoToFirst'
+			pageSizeElement.form.submit()
+
+		}
+
+	}
+
+</script>
+ *@
