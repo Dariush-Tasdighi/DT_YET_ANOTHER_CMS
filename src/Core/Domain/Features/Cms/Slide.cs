@@ -125,7 +125,7 @@ public class Slide(string title, string imageUrl) : Entity(),
 	//[System.ComponentModel.DataAnnotations.Display
 	//	(ResourceType = typeof(Resources.DataDictionary),
 	//	Name = nameof(Resources.DataDictionary.PublishStartDateTime))]
-	public System.DateTimeOffset? PublishStartDateTime { get; set; }
+	public DateTimeOffset? PublishStartDateTime { get; set; }
 
 	/// <summary>
 	/// تاریخ و زمان پایان انتشار
@@ -133,5 +133,5 @@ public class Slide(string title, string imageUrl) : Entity(),
 	//[System.ComponentModel.DataAnnotations.Display
 	//	(ResourceType = typeof(Resources.DataDictionary),
 	//	Name = nameof(Resources.DataDictionary.PublishFinishDateTime))]
-	public System.DateTimeOffset? PublishFinishDateTime { get; set; }
+	public DateTimeOffset? PublishFinishDateTime { get; set; }
 }

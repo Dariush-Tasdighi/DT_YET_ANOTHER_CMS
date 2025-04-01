@@ -176,8 +176,6 @@ public class ApplicationSetting : Entity,
 		(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
 	public System.DateTimeOffset UpdateDateTime { get; private set; }
 
-
-
 	public string ThemeName
 	{
 		get

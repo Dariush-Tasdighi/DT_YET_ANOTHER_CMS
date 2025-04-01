@@ -17,10 +17,16 @@
 		return;
 	}
 
+	var className = "nav-link";
+	if (Model.ParentId is not null)
+	{
+		className = "dropdown-item";
+	}
+
 	if (Model.IsDisabled)
 	{
 		<li class="nav-item">
-			<a class="nav-link disabled" aria-disabled="true">
+			<a class="@(className) disabled" aria-disabled="true">
 				@(Html.Raw(value: title))
 			</a>
 		</li>
@@ -32,12 +38,6 @@
 	if (Model.OpenUrlInNewWindow)
 	{
 		target = "_blank";
-	}
-
-	var className = "nav-link";
-	if (Model.ParentId is not null)
-	{
-		className = "dropdown-item";
 	}
 
 	var navigationUrl = Model.NavigationUrl;

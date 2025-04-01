@@ -4,6 +4,7 @@ using Domain.Features.Identity;
 
 using var applicationDbContext = new ApplicationDbContext();
 
+// **************************************************
 var userRole = new Role(name: "User", code: 10, title: "کاربر");
 applicationDbContext.Add(entity: userRole);
 
@@ -11,7 +12,9 @@ var administratorRole = new Role(name: "Administrator", code: 20, title: "مدی
 applicationDbContext.Add(entity: administratorRole);
 
 await applicationDbContext.SaveChangesAsync();
+// **************************************************
 
+// **************************************************
 var user = new User(roleId: userRole.Id, username: "alirezaalavi", password: "1234512345", emailAddress: "AliRezaAlavi@Gmail.com");
 applicationDbContext.Add(entity: user);
 
@@ -19,9 +22,10 @@ var administrator = new User(roleId: administratorRole.Id, username: "dariush", 
 applicationDbContext.Add(entity: administrator);
 
 await applicationDbContext.SaveChangesAsync();
+// **************************************************
 
 // **************************************************
-var subMenuItem1 = new MenuItem(title: "Sub Menu 1")
+var subMenuItem1 = new MenuItem(title: "منوی اصلی ۱")
 {
 	Ordering = 90,
 	IsVisible = false,
@@ -31,7 +35,7 @@ var subMenuItem1 = new MenuItem(title: "Sub Menu 1")
 };
 applicationDbContext.Add(entity: subMenuItem1);
 
-var subMenuItem2 = new MenuItem(title: "Sub Menu 2")
+var subMenuItem2 = new MenuItem(title: "منوی اصلی 2")
 {
 	Ordering = 80,
 	IsVisible = false,
@@ -41,7 +45,7 @@ var subMenuItem2 = new MenuItem(title: "Sub Menu 2")
 };
 applicationDbContext.Add(entity: subMenuItem2);
 
-var subMenuItem3 = new MenuItem(title: "Sub Menu 3")
+var subMenuItem3 = new MenuItem(title: "منوی اصلی 3")
 {
 	Ordering = 70,
 	IsVisible = true,
@@ -51,7 +55,7 @@ var subMenuItem3 = new MenuItem(title: "Sub Menu 3")
 };
 applicationDbContext.Add(entity: subMenuItem3);
 
-var subMenuItem4 = new MenuItem(title: "Sub Menu 4")
+var subMenuItem4 = new MenuItem(title: "منوی اصلی 4")
 {
 	Ordering = 60,
 	IsVisible = true,
@@ -61,7 +65,7 @@ var subMenuItem4 = new MenuItem(title: "Sub Menu 4")
 };
 applicationDbContext.Add(entity: subMenuItem4);
 
-var subMenuItem5 = new MenuItem(title: "Sub Menu 5")
+var subMenuItem5 = new MenuItem(title: "منوی اصلی 5")
 {
 	Ordering = 50,
 	IsVisible = true,
@@ -73,7 +77,7 @@ applicationDbContext.Add(entity: subMenuItem5);
 
 
 
-var menuItem1 = new MenuItem(title: "Menu Item 1")
+var menuItem1 = new MenuItem(title: "گزینه 1")
 {
 	Ordering = 10,
 	IsVisible = false,
@@ -83,7 +87,7 @@ var menuItem1 = new MenuItem(title: "Menu Item 1")
 };
 applicationDbContext.Add(entity: menuItem1);
 
-var menuItem2 = new MenuItem(title: "Menu Item 2")
+var menuItem2 = new MenuItem(title: "گزینه 2")
 {
 	Ordering = 20,
 	IsVisible = false,
@@ -93,7 +97,7 @@ var menuItem2 = new MenuItem(title: "Menu Item 2")
 };
 applicationDbContext.Add(entity: menuItem2);
 
-var menuItem3 = new MenuItem(title: "Menu Item 3")
+var menuItem3 = new MenuItem(title: "گزینه 3")
 {
 	Ordering = 30,
 	IsVisible = true,
@@ -103,7 +107,7 @@ var menuItem3 = new MenuItem(title: "Menu Item 3")
 };
 applicationDbContext.Add(entity: menuItem3);
 
-var menuItem4 = new MenuItem(title: "Menu Item 4")
+var menuItem4 = new MenuItem(title: "گزینه 4")
 {
 	Ordering = 40,
 	IsVisible = true,
@@ -123,7 +127,7 @@ var menuItem5 = new MenuItem(title: "   -    ")
 };
 applicationDbContext.Add(entity: menuItem5);
 
-var menuItem6 = new MenuItem(title: "Menu Item 6")
+var menuItem6 = new MenuItem(title: "گزینه 6")
 {
 	Ordering = 60,
 	IsVisible = true,

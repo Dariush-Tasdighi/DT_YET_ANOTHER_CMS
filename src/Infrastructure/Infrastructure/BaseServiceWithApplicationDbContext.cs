@@ -2,7 +2,7 @@
 
 namespace Infrastructure;
 
-public abstract class BaseServiceWithDatabaseContext(ApplicationDbContext applicationDbContext) : object
+public abstract class BaseServiceWithApplicationDbContext(ApplicationDbContext applicationDbContext) : object
 {
 	public ApplicationDbContext ApplicationDbContext { get; init; } = applicationDbContext;
 }
