@@ -7,12 +7,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Features.Identity;
 
-public class User(Guid roleId, string username, string password, string emailAddress) : Entity,
+public class User : Entity,
 	IEntityHasIsActive,
 	IEntityHasUpdateDateTime
 {
+	public User(Guid roleId, string username, string password, string emailAddress) : base()
+	{
+		RoleId = roleId;
+		Username = username;
+		Password = password;
+		EmailAddress = emailAddress;
+
+		UpdateDateTime = InsertDateTime;
+	}
+
 	[Required]
-	public Guid RoleId { get; set; } = roleId;
+	public Guid RoleId { get; set; }
 
 	public virtual Role? Role { get; set; }
 
@@ -20,16 +30,16 @@ public class User(Guid roleId, string username, string password, string emailAdd
 
 	[Required(AllowEmptyStrings = false)]
 	[MaxLength(length: Constant.MaxLength.Username)]
-	public string Username { get; set; } = username;
-	//public string Username { get; init; } = username;
+	public string Username { get; set; }
+	//public string Username { get; init; }
 
 	[Required(AllowEmptyStrings = false)]
 	//[MaxLength(length: Constant.MaxLength.Password)]
-	public string Password { get; set; } = password;
+	public string Password { get; set; }
 
 	[Required(AllowEmptyStrings = false)]
 	//[MaxLength(length: Constant.MaxLength.EmailAddress)]
-	public string EmailAddress { get; set; } = emailAddress;
+	public string EmailAddress { get; set; }
 
 	[DatabaseGenerated(databaseGeneratedOption: DatabaseGeneratedOption.None)]
 	public DateTimeOffset UpdateDateTime { get; set; }

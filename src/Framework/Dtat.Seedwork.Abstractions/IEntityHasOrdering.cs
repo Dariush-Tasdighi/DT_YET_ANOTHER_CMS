@@ -2,5 +2,5 @@
 
 public interface IEntityHasOrdering
 {
-	long Ordering { get; }
+	int Ordering { get; }
 }

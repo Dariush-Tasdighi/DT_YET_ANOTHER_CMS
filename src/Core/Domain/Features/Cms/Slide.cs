@@ -59,7 +59,7 @@ public class Slide(string title, string imageUrl) : Entity(),
 		(minimum: 1, maximum: 100_000,
 		ErrorMessageResourceType = typeof(Resources.Messages.Validations),
 		ErrorMessageResourceName = nameof(Resources.Messages.Validations.Range))]
-	public long Ordering { get; set; } = 10_000;
+	public int Ordering { get; set; } = 10_000;
 
 	/// <summary>
 	/// عنوان

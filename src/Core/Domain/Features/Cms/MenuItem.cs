@@ -7,10 +7,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Features.Cms;
 
-public class MenuItem(string title) : Entity,
+public class MenuItem : Entity,
 	IEntityHasOrdering,
 	IEntityHasUpdateDateTime
 {
+	public MenuItem(string title) : base()
+	{
+		Title = title;
+		UpdateDateTime = InsertDateTime;
+	}
+
 	public Guid? ParentId { get; set; }
 
 	public virtual MenuItem? Parent { get; set; }
@@ -36,11 +42,11 @@ public class MenuItem(string title) : Entity,
 	/// <summary>
 	/// TODO
 	/// </summary>
-	public long Ordering { get; set; } = 10_000;
+	public int Ordering { get; set; } = 10_000;
 
 	[Required(AllowEmptyStrings = false)]
 	[MaxLength(length: 100)]
-	public string Title { get; set; } = title;
+	public string Title { get; set; }
 
 	/// <summary>
 	/// لینک مقصد

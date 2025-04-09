@@ -24,7 +24,7 @@ public class Role(string name, long code, string title) : Entity,
 	/// <summary>
 	/// TODO
 	/// </summary>
-	public long Ordering { get; set; } = 10_000;
+	public int Ordering { get; set; } = 10_000;
 
 	/// <summary>
 	/// TODO

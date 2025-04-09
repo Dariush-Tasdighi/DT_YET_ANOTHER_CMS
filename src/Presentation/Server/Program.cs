@@ -1,8 +1,8 @@
 using Persistence;
-using Microsoft.EntityFrameworkCore;
 using Services.Features.Common;
+using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args: args);
 
 builder.Services
 	.AddRazorPages()
@@ -30,7 +30,7 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment() == false)
 {
-	app.UseExceptionHandler("/Error");
+	app.UseExceptionHandler(errorHandlingPath: "/Error");
 	app.UseHsts();
 }
 
