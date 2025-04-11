@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
 		<Nullable>enable</Nullable>
@@ -12,8 +12,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Dtat.Resources\Dtat.Resources.csproj" />
-	  <ProjectReference Include="..\Dtat\Dtat.csproj" />
+		<ProjectReference Include="..\Dtat\Dtat.csproj" />
+		<ProjectReference Include="..\Dtat.Resources\Dtat.Resources.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -12,6 +12,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\Core\ViewModels\ViewModels.csproj" />
+		<ProjectReference Include="..\..\Framework\Dtat.AspNetCore.Mvc\Dtat.AspNetCore.Mvc.csproj" />
 		<ProjectReference Include="..\..\Infrastructure\Persistence\Persistence.csproj" />
 		<ProjectReference Include="..\..\Infrastructure\Infrastructure\Infrastructure.csproj" />
 	</ItemGroup>

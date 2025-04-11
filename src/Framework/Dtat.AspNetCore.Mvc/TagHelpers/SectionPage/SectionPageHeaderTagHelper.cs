@@ -1,15 +1,14 @@
-﻿namespace Dtat.AspNetCore.Mvc.TagHelpers.SectionPage;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 
-[Microsoft.AspNetCore.Razor.TagHelpers.HtmlTargetElement
-	(tag: "section-page-header",
-	TagStructure = Microsoft.AspNetCore.Razor.TagHelpers.TagStructure.NormalOrSelfClosing)]
-public class SectionPageHeaderTagHelper :
-	Microsoft.AspNetCore.Razor.TagHelpers.TagHelper
+namespace Dtat.AspNetCore.Mvc.TagHelpers.SectionPage;
+
+[HtmlTargetElement(
+	tag: "section-page-header",
+	TagStructure = TagStructure.NormalOrSelfClosing)]
+public class SectionPageHeaderTagHelper : TagHelper
 {
-	public SectionPageHeaderTagHelper() : base()
-	{
-	}
-
 	//public override void Process
 	//	(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext context,
 	//	Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput output)
@@ -17,9 +16,8 @@ public class SectionPageHeaderTagHelper :
 	//	base.Process(context, output);
 	//}
 
-	public async override System.Threading.Tasks.Task ProcessAsync
-		(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext context,
-		Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput output)
+	public async override Task ProcessAsync(
+		TagHelperContext context, TagHelperOutput output)
 	{
 		// **************************************************
 		var originalContents =
@@ -28,21 +26,16 @@ public class SectionPageHeaderTagHelper :
 		// **************************************************
 
 		// **************************************************
-		var horizontalRule =
-			new Microsoft.AspNetCore.Mvc
-			.Rendering.TagBuilder(tagName: "hr")
-			{
-				TagRenderMode =
-					Microsoft.AspNetCore.Mvc.Rendering.TagRenderMode.SelfClosing,
-			};
+		var horizontalRule = new TagBuilder(tagName: "hr")
+		{
+			TagRenderMode = TagRenderMode.SelfClosing,
+		};
 
 		horizontalRule.AddCssClass(value: "mt-4");
 		// **************************************************
 
 		// **************************************************
-		var body =
-			new Microsoft.AspNetCore.Mvc
-			.Rendering.TagBuilder(tagName: "h3");
+		var body = new TagBuilder(tagName: "h3");
 
 		body.AddCssClass(value: "mt-3");
 		body.AddCssClass(value: "mb-3");
@@ -54,11 +47,7 @@ public class SectionPageHeaderTagHelper :
 
 		// **************************************************
 		output.TagName = null;
-
-		output.TagMode =
-			Microsoft.AspNetCore.Razor
-			.TagHelpers.TagMode.StartTagAndEndTag;
-
+		output.TagMode = TagMode.StartTagAndEndTag;
 		output.Content.SetHtmlContent(htmlContent: body);
 		// **************************************************
 	}

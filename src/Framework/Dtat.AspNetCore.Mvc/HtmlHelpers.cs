@@ -1,10 +1,9 @@
-﻿using Dtat;
-using System;
+﻿using System;
 using System.Linq;
-using Microsoft.AspNetCore.Html;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Dtat.Resources;
+using Microsoft.AspNetCore.Html;
 using Dtat.AspNetCore.Mvc.TagHelpers;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Dtat.AspNetCore.Mvc;
 
