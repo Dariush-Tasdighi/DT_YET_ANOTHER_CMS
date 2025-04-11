@@ -64,4 +64,208 @@ public static class Constant : object
 		public const string IP = @"^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
 		public const string Url = @"https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)";
 	}
+
+	public static class Format : object
+	{
+		public const string Integer = "#,##0";
+		public const string NullValue = "-----";
+
+		public const string Time = "HH:mm:ss";
+		public const string Date = "yyyy/MM/dd";
+		public const string DateTime = "yyyy/MM/dd - HH:mm:ss";
+
+		//	public static string NullValue
+		//	{
+		//		get
+		//		{
+		//			//return null;
+		//			//return "-----";
+		//			//return string.Empty;
+
+		//			return "<i class='bi bi-patch-question'></i>";
+		//		}
+		//	}
+
+		//	public static string Integer
+		//	{
+		//		get
+		//		{
+		//			return "#,##0";
+		//		}
+		//	}
+
+		//	public static string Time
+		//	{
+		//		get
+		//		{
+		//			return "HH:mm:ss";
+		//		}
+		//	}
+
+		//	public static string Date
+		//	{
+		//		get
+		//		{
+		//			return "yyyy/MM/dd";
+		//		}
+		//	}
+
+		//	public static string DateTime
+		//	{
+		//		get
+		//		{
+		//			return $"{Date} - {Time}";
+		//		}
+		//	}
+	}
+
+	public static class TagHelper : object
+	{
+		public const string Prefix = "dtat-";
+
+		public const string Label = Prefix + "simple-label";
+		public const string Input = Prefix + "simple-input";
+		public const string CheckBox = Prefix + "simple-checkbox";
+		public const string TextArea = Prefix + "simple-textarea";
+
+		public const string FullInput = Prefix + "full-input";
+		public const string FullSelect = Prefix + "full-select";
+		public const string FullCheckBox = Prefix + "full-checkbox";
+		public const string FullTextArea = Prefix + "full-textarea";
+		public const string FullPasswordInput = Prefix + "full-password-input";
+
+		public const string ReadOnlyInput = Prefix + "readonly-input";
+		public const string ReadOnlyCheckBox = Prefix + "readonly-checkbox";
+		public const string ReadOnlyTextArea = Prefix + "readonly-textarea";
+	}
+
+	public static class CommonRouting : object
+	{
+		/// <summary>
+		/// Error 404
+		/// </summary>
+		public const string NotFound = "/Errors/Error404";
+
+		/// <summary>
+		/// Error 403
+		/// </summary>
+		public const string Forbidden = "/Errors/Error403";
+
+		/// <summary>
+		/// Error 400
+		/// </summary>
+		public const string BadRequest = "/Errors/Error400";
+
+		/// <summary>
+		/// Error 500
+		/// </summary>
+		public const string InternalServerError = "/Errors/Error500";
+
+
+
+		/// <summary>
+		/// Root Index
+		/// </summary>
+		public const string RootIndex = "/Index";
+
+		/// <summary>
+		/// Current Index
+		/// </summary>
+		public const string CurrentIndex = "Index";
+
+		/// <summary>
+		/// Dashboard
+		/// </summary>
+		public const string Dashboard = "/Dashboard";
+
+		/// <summary>
+		/// Login
+		/// </summary>
+		public const string Login = "/Account/Login";
+
+		/// <summary>
+		/// Logout
+		/// </summary>
+		public const string Logout = "/Account/Logout";
+
+		/// <summary>
+		/// Google Login
+		/// </summary>
+		public const string GoogleLogin = "/Google/Login";
+
+		/// <summary>
+		/// Register
+		/// </summary>
+		public const string Register = "/Account/Register";
+
+		/// <summary>
+		/// Send Again Email Address Verification Key
+		/// </summary>
+		public const string
+			SendAgainEmailAddressVerificationKey =
+			"/Account/SendAgainEmailAddressVerificationKey";
+	}
+
+	public static class ViewDataKeyName : object
+	{
+		static ViewDataKeyName()
+		{
+		}
+
+		public static string LayoutId
+		{
+			get
+			{
+				return "LayoutId";
+			}
+		}
+
+		public static string PageTitle
+		{
+			get
+			{
+				return "PageTitle";
+			}
+		}
+
+		public static string PageAuthor
+		{
+			get
+			{
+				return "PageAuthor";
+			}
+		}
+
+		public static string PageImageUrl
+		{
+			get
+			{
+				return "PageImageUrl";
+			}
+		}
+
+		public static string PageKeywords
+		{
+			get
+			{
+				return "PageKeywords";
+			}
+		}
+
+		public static string PageDescription
+		{
+			get
+			{
+				return "PageDescription";
+			}
+		}
+
+		public static string IgnoreRichTextBox
+		{
+			get
+			{
+				return "IgnoreRichTextBox";
+			}
+		}
+	}
 }

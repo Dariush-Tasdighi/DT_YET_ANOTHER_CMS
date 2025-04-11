@@ -1,0 +1,113 @@
+﻿@page
+
+@using Dtat
+@using Resources
+@using Dtat.AspNetCore.Mvc
+@using Server.Pages.Features.Cms.Admin.PostCategories
+
+@model IndexModel
+
+@{
+	var pageTitle = $"{DataDictionary.ListOf} {DataDictionary.PostCategories}";
+	ViewData[Constant.ViewDataKeyName.PageTitle] = pageTitle;
+}
+
+<section-page-header>
+	@(pageTitle)
+</section-page-header>
+
+<section-page-actions>
+	<a asp-page="Create">
+		@(Html.DtatGetLinkCaptionForCreate())
+	</a>
+</section-page-actions>
+
+<partial name="PartialViews/_DisplayPageMessages" />
+
+<section-table>
+	<table>
+		<caption>
+			@(pageTitle)
+		</caption>
+
+		<thead>
+			<tr>
+				<th>
+					@(Resources.DataDictionary.RowNumber)
+				</th>
+				<th>
+				</th>
+				<th>
+					@(Resources.DataDictionary.IsActive)
+				</th>
+				<th>
+					@(Resources.DataDictionary.Ordering)
+				</th>
+				<th>
+					@(Resources.DataDictionary.Name)
+				</th>
+				<th>
+					@(Resources.DataDictionary.Title)
+				</th>
+				<th>
+					@(Resources.DataDictionary.PostCount)
+				</th>
+				<th>
+					@(Resources.DataDictionary.DisplayInHomePage)
+				</th>
+				<th>
+					@(Resources.DataDictionary.Hits)
+				</th>
+				<th>
+					@(Resources.DataDictionary.InsertDateTime)
+				</th>
+				<th>
+					@(Resources.DataDictionary.UpdateDateTime)
+				</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			@for (var index = 0; index <= Model.ViewModel.Count - 1; index++)
+			{
+				var item = Model.ViewModel[index];
+
+				<tr>
+					@(Html.DtatDisplayRowNumberWithTd(value: index + 1))
+
+					<table-actions>
+						<a asp-page="Details" asp-route-id="@(item.Id)">
+							@(Html.DtatGetIconDetails())
+						</a>
+						<a asp-page="Update" asp-route-id="@(item.Id)">
+							@(Html.DtatGetIconUpdate())
+						</a>
+						<a asp-page="Delete" asp-route-id="@(item.Id)">
+							@(Html.DtatGetIconDelete())
+						</a>
+					</table-actions>
+
+					@(Html.DtatDisplayBooleanWithTd(value: item.IsActive))
+
+					@(Html.DtatDisplayIntegerWithTd(value: item.Ordering))
+
+@* 					<td dir="ltr">
+						<a href="~/category/@(currentUICultureName)/@(item.Name)">@(item.Name)</a>
+					</td>
+ *@
+					@(Html.DtatDisplayStringWithTd(value: item.Title))
+
+					@(Html.DtatDisplayIntegerWithTd(value: item.PostCount))
+
+					@(Html.DtatDisplayBooleanWithTd(value: item.DisplayInHomePage))
+
+					@(Html.DtatDisplayIntegerWithTd(value: item.Hits))
+
+					@(Html.DtatDisplayDateTimeOffsetWithTd(value: item.InsertDateTime))
+
+					@(Html.DtatDisplayDateTimeOffsetWithTd(value: item.UpdateDateTime))
+				</tr>
+			}
+		</tbody>
+	</table>
+</section-table>

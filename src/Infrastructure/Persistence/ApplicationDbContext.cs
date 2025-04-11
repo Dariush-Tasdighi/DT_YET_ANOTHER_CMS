@@ -36,6 +36,7 @@ public class ApplicationDbContext : DbContext
 
 	public DbSet<Page> Pages { get; set; }
 	public DbSet<MenuItem> MenuItems { get; set; }
+	public DbSet<PostCategory> PostCategories { get; set; }
 
 	public DbSet<ApplicationSetting> ApplicationSettings { get; set; }
 

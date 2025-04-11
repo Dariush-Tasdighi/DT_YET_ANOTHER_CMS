@@ -7,8 +7,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\Framework\Dtat.AspNetCore.Mvc\Dtat.AspNetCore.Mvc.csproj" />
-		<ProjectReference Include="..\Persistence\Persistence.csproj" />
+	  <ProjectReference Include="..\..\Framework\Dtat\Dtat.csproj" />
+	  <ProjectReference Include="..\Resources\Resources.csproj" />
 	</ItemGroup>
 
 </Project>

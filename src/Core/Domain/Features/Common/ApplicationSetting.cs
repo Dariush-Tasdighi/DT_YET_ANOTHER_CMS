@@ -189,6 +189,6 @@ public class ApplicationSetting : Entity,
 
 	public void SetUpdateDateTime()
 	{
-		UpdateDateTime = Dtat.DateTime.Now;
+		UpdateDateTime = Dtat.DateTimeHelper.Now;
 	}
 }

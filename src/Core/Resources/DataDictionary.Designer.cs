@@ -106,11 +106,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ایجاد.
+        /// </summary>
+        public static string CreateOf {
+            get {
+                return ResourceManager.GetString("CreateOf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to حذف.
+        /// </summary>
+        public static string DeleteOf {
+            get {
+                return ResourceManager.GetString("DeleteOf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to توضیحات.
         /// </summary>
         public static string Description {
             get {
                 return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نمایش.
+        /// </summary>
+        public static string DetailsOf {
+            get {
+                return ResourceManager.GetString("DetailsOf", resourceCulture);
             }
         }
         
@@ -160,6 +187,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to شناسه.
+        /// </summary>
+        public static string Id {
+            get {
+                return ResourceManager.GetString("Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to نشانی تصویر.
         /// </summary>
         public static string ImageUrl {
@@ -174,6 +210,24 @@ namespace Resources {
         public static string Inactive {
             get {
                 return ResourceManager.GetString("Inactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تعداد مطالب غیرفعال.
+        /// </summary>
+        public static string InactivePostCount {
+            get {
+                return ResourceManager.GetString("InactivePostCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to زمان ایجاد.
+        /// </summary>
+        public static string InsertDateTime {
+            get {
+                return ResourceManager.GetString("InsertDateTime", resourceCulture);
             }
         }
         
@@ -201,6 +255,15 @@ namespace Resources {
         public static string LastName {
             get {
                 return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to فهرست.
+        /// </summary>
+        public static string ListOf {
+            get {
+                return ResourceManager.GetString("ListOf", resourceCulture);
             }
         }
         
@@ -277,6 +340,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to طبقه‌بندی‌های مطالب.
+        /// </summary>
+        public static string PostCategories {
+            get {
+                return ResourceManager.GetString("PostCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to طبقه‌بندی مطلب.
+        /// </summary>
+        public static string PostCategory {
+            get {
+                return ResourceManager.GetString("PostCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تعداد مطالب.
+        /// </summary>
+        public static string PostCount {
+            get {
+                return ResourceManager.GetString("PostCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #.
+        /// </summary>
+        public static string RowNumber {
+            get {
+                return ResourceManager.GetString("RowNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to عنوان.
         /// </summary>
         public static string Title {
@@ -291,6 +390,15 @@ namespace Resources {
         public static string UpdateDateTime {
             get {
                 return ResourceManager.GetString("UpdateDateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ویرایش.
+        /// </summary>
+        public static string UpdateOf {
+            get {
+                return ResourceManager.GetString("UpdateOf", resourceCulture);
             }
         }
         

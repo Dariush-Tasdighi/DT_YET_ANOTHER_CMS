@@ -1,0 +1,70 @@
+﻿@page
+
+@using Dtat
+@using Resources
+@using Dtat.AspNetCore.Mvc
+@using Server.Pages.Features.Cms.Admin.PostCategories
+
+@model UpdateModel
+
+@{
+	var pageTitle = $"{DataDictionary.UpdateOf} {DataDictionary.PostCategory}";
+	ViewData[Constant.ViewDataKeyName.PageTitle] = pageTitle;
+}
+
+<form method="post">
+
+	<input type="hidden" asp-for="ViewModel.Id" />
+
+	<section-form>
+		<fieldset>
+			<section-form-header>
+				@(pageTitle)
+			</section-form-header>
+
+			<partial name="PartialViews/_DisplayPageMessages" />
+
+			<dtat-full-checkbox asp-for="ViewModel.IsActive" />
+
+			<dtat-full-input asp-for="ViewModel.Ordering" />
+
+			<dtat-full-input asp-for="ViewModel.Name" dir="ltr" />
+
+			<dtat-full-input asp-for="ViewModel.Title" />
+
+			<dtat-full-input asp-for="ViewModel.Description" />
+
+			<dtat-full-input asp-for="ViewModel.ImageUrl" dir="ltr" />
+
+			<dtat-full-input asp-for="ViewModel.CoverImageUrl" dir="ltr" />
+
+			<dtat-full-input asp-for="ViewModel.MaxPostCountInMainPage" />
+
+			<dtat-full-checkbox asp-for="ViewModel.DisplayInHomePage" />
+
+			<dtat-full-input asp-for="ViewModel.MaxPostCountInHomePage" />
+
+			<dtat-full-input asp-for="ViewModel.Hits" />
+
+			<dtat-full-textarea asp-for="ViewModel.Body" />
+		</fieldset>
+
+		<section-form-buttons>
+			<button-save />
+			<button-reset />
+		</section-form-buttons>
+
+		<section-form-footer>
+			<a asp-page="Index">
+				@(Html.DtatGetLinkCaptionForList())
+			</a>
+			<a asp-page="Details" asp-route-id="@(Model.ViewModel.Id)">
+				@(Html.DtatGetLinkCaptionForDetails())
+			</a>
+			<a asp-page="Delete" asp-route-id="@(Model.ViewModel.Id)">
+				@(Html.DtatGetLinkCaptionForDelete())
+			</a>
+		</section-form-footer>
+	</section-form>
+
+</form>

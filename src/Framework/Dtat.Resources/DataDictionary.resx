@@ -117,121 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Active" xml:space="preserve">
-    <value>فعال</value>
+  <data name="BackToList" xml:space="preserve">
+    <value>بازگشت به فهرست</value>
   </data>
-  <data name="Body" xml:space="preserve">
-    <value>متن</value>
-  </data>
-  <data name="CellPhoneNumber" xml:space="preserve">
-    <value>شماره تلفن همراه</value>
-  </data>
-  <data name="Code" xml:space="preserve">
-    <value>کد</value>
-  </data>
-  <data name="CoverImageUrl" xml:space="preserve">
-    <value>نشانی تصویر کاور</value>
-  </data>
-  <data name="CreateOf" xml:space="preserve">
+  <data name="Create" xml:space="preserve">
     <value>ایجاد</value>
   </data>
-  <data name="DeleteOf" xml:space="preserve">
+  <data name="Delete" xml:space="preserve">
     <value>حذف</value>
   </data>
-  <data name="Description" xml:space="preserve">
-    <value>توضیحات</value>
-  </data>
-  <data name="DetailsOf" xml:space="preserve">
+  <data name="Details" xml:space="preserve">
     <value>نمایش</value>
   </data>
-  <data name="DisplayInHomePage" xml:space="preserve">
-    <value>نمایش در صفحه اول سایت</value>
+  <data name="Reset" xml:space="preserve">
+    <value>حالت اولیه</value>
   </data>
-  <data name="EmailAddress" xml:space="preserve">
-    <value>نشانی پست الکترونیکی</value>
+  <data name="Save" xml:space="preserve">
+    <value>ذخیره</value>
   </data>
-  <data name="FirstName" xml:space="preserve">
-    <value>نام</value>
+  <data name="Search" xml:space="preserve">
+    <value>جستجو</value>
   </data>
-  <data name="FullName" xml:space="preserve">
-    <value>نام و نام خانوادگی</value>
+  <data name="SelectAnItem" xml:space="preserve">
+    <value>گزینه‌ای را انتخاب کنید</value>
   </data>
-  <data name="Hits" xml:space="preserve">
-    <value>تعداد دفعات بازدید</value>
+  <data name="Send" xml:space="preserve">
+    <value>ارسال</value>
   </data>
-  <data name="Id" xml:space="preserve">
-    <value>شناسه</value>
+  <data name="Submit" xml:space="preserve">
+    <value>ثبت اطلاعات</value>
   </data>
-  <data name="ImageUrl" xml:space="preserve">
-    <value>نشانی تصویر</value>
-  </data>
-  <data name="Inactive" xml:space="preserve">
-    <value>غیرفعال</value>
-  </data>
-  <data name="InactivePostCount" xml:space="preserve">
-    <value>تعداد مطالب غیرفعال</value>
-  </data>
-  <data name="InsertDateTime" xml:space="preserve">
-    <value>زمان ایجاد</value>
-  </data>
-  <data name="IP4Address" xml:space="preserve">
-    <value>IP4 Address</value>
-  </data>
-  <data name="IsActive" xml:space="preserve">
-    <value>فعال</value>
-  </data>
-  <data name="LastName" xml:space="preserve">
-    <value>نام خانوادگی</value>
-  </data>
-  <data name="ListOf" xml:space="preserve">
-    <value>فهرست</value>
-  </data>
-  <data name="MaxPostCountInHomePage" xml:space="preserve">
-    <value>حداکثر تعداد مطالب در صفحه اول سایت</value>
-  </data>
-  <data name="MaxPostCountInMainPage" xml:space="preserve">
-    <value>حداکثر تعداد مطالب در صفحه اصلی</value>
-  </data>
-  <data name="MetaDescription" xml:space="preserve">
-    <value>Meta Description</value>
-  </data>
-  <data name="MetaTitle" xml:space="preserve">
-    <value>Meta Title</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>نام</value>
-  </data>
-  <data name="Ordering" xml:space="preserve">
-    <value>چیدمان</value>
-  </data>
-  <data name="Origin" xml:space="preserve">
-    <value>Origin</value>
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>گذرواژه</value>
-  </data>
-  <data name="PostCategories" xml:space="preserve">
-    <value>طبقه‌بندی‌های مطالب</value>
-  </data>
-  <data name="PostCategory" xml:space="preserve">
-    <value>طبقه‌بندی مطلب</value>
-  </data>
-  <data name="PostCount" xml:space="preserve">
-    <value>تعداد مطالب</value>
-  </data>
-  <data name="RowNumber" xml:space="preserve">
-    <value>#</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>عنوان</value>
-  </data>
-  <data name="UpdateDateTime" xml:space="preserve">
-    <value>زمان ویرایش</value>
-  </data>
-  <data name="UpdateOf" xml:space="preserve">
+  <data name="Update" xml:space="preserve">
     <value>ویرایش</value>
   </data>
-  <data name="Username" xml:space="preserve">
-    <value>شناسه کاربری</value>
+  <data name="UpdateInformationAgain" xml:space="preserve">
+    <value>ویرایش مجدد اطلاعات</value>
   </data>
 </root>

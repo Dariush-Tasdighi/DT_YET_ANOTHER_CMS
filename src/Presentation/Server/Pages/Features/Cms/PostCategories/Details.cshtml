@@ -1,0 +1,69 @@
+﻿@page
+
+@using Dtat
+@using Resources
+@using Dtat.AspNetCore.Mvc
+@using Server.Pages.Features.Cms.Admin.PostCategories
+
+@model DetailsModel
+
+@{
+	var pageTitle = $"{DataDictionary.DetailsOf} {Resources.DataDictionary.PostCategory}";
+	ViewData[Constant.ViewDataKeyName.PageTitle] = pageTitle;
+}
+
+<section-form>
+	<fieldset>
+		<section-form-header>
+			@(pageTitle)
+		</section-form-header>
+
+		<partial name="PartialViews/_DisplayPageMessages" />
+
+		<dtat-readonly-input asp-for="ViewModel.Id" />
+
+		<dtat-readonly-checkbox asp-for="ViewModel.IsActive" />
+
+		<dtat-readonly-input asp-for="ViewModel.Ordering" />
+
+		<dtat-readonly-input asp-for="ViewModel.Name" dir="ltr" />
+
+		<dtat-readonly-input asp-for="ViewModel.Title" />
+
+		<dtat-readonly-input asp-for="ViewModel.Description" />
+
+		<dtat-readonly-input asp-for="ViewModel.ImageUrl" />
+
+		<dtat-readonly-input asp-for="ViewModel.CoverImageUrl" />
+
+		<dtat-readonly-input asp-for="ViewModel.MaxPostCountInMainPage" />
+
+		<dtat-readonly-checkbox asp-for="ViewModel.DisplayInHomePage" />
+
+		<dtat-readonly-input asp-for="ViewModel.MaxPostCountInHomePage" />
+
+		<dtat-readonly-input asp-for="ViewModel.PostCount" />
+
+		<dtat-readonly-input asp-for="ViewModel.Hits" />
+
+		<dtat-readonly-input asp-for="ViewModel.InsertDateTime" />
+
+		<dtat-readonly-input asp-for="ViewModel.UpdateDateTime" />
+
+		<hr />
+
+		@(Html.Raw(value: Model.ViewModel.Body))
+	</fieldset>
+
+	<section-form-footer>
+		<a asp-page="Index">
+			@(Html.DtatGetLinkCaptionForList())
+		</a>
+		<a asp-page="Update" asp-route-id="@(Model.ViewModel.Id)">
+			@(Html.DtatGetLinkCaptionForUpdate())
+		</a>
+		<a asp-page="Delete" asp-route-id="@(Model.ViewModel.Id)">
+			@(Html.DtatGetLinkCaptionForDelete())
+		</a>
+	</section-form-footer>
+</section-form>

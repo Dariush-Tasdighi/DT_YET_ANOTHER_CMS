@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
-		<TargetFramework>net9.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<TargetFramework>net9.0</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -11,6 +11,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\Core\ViewModels\ViewModels.csproj" />
 		<ProjectReference Include="..\..\Infrastructure\Persistence\Persistence.csproj" />
 		<ProjectReference Include="..\..\Infrastructure\Infrastructure\Infrastructure.csproj" />
 	</ItemGroup>

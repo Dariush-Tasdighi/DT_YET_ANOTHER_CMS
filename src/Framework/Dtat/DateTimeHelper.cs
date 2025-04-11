@@ -1,6 +1,6 @@
 ﻿namespace Dtat;
 
-public static class DateTime : object
+public static class DateTimeHelper : object
 {
 	public static DateTimeOffset Now
 	{
