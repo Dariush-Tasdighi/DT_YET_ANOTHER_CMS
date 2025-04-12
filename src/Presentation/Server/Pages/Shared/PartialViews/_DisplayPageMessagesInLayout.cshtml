@@ -1,0 +1,20 @@
+﻿@using Dtat.AspNetCore.Mvc.Messages
+
+@{
+	var pageErrors = TempData[key: MessageType.PageError.ToString()] as IList<string>;
+	var pageWarnings = TempData[key: MessageType.PageWarning.ToString()] as IList<string>;
+	var pageSuccesses = TempData[key: MessageType.PageSuccess.ToString()] as IList<string>;
+
+	if ((pageErrors == null || pageErrors.Count == 0) &&
+	(pageWarnings == null || pageWarnings.Count == 0) &&
+	(pageSuccesses == null || pageSuccesses.Count == 0))
+	{
+		return;
+	}
+}
+
+<div class="row">
+	<div class="col-12 p-3 col-md-8 offset-md-2 p-md-5 bg-light border border-2 rounded-3 shadow-lg">
+		<partial name="PartialViews/_DisplayPageMessages" />
+	</div>
+</div>

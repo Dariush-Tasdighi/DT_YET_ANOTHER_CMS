@@ -5,7 +5,7 @@ namespace Infrastructure;
 
 public abstract class BasePageModelWithApplicationDbContext : BasePageModel
 {
-	public BasePageModelWithApplicationDbContext
+	protected BasePageModelWithApplicationDbContext
 		(ApplicationDbContext applicationDbContext) : base()
 	{
 		ApplicationDbContext = applicationDbContext;

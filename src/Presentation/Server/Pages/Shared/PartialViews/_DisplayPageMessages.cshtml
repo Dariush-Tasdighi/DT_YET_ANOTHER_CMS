@@ -1,21 +1,13 @@
-﻿@* @{
-	/// Version 3.0
+﻿@using Dtat.AspNetCore.Mvc.Messages
 
+@{
 	// نکته مهم
 	// در همه شرایط کار نمی‌کند List استفاده از کلاس
-	var pageErrors =
-		TempData[key: Infrastructure.Messages.MessageType.PageError.ToString()] as
-		System.Collections.Generic.IList<string>;
+	var pageErrors = TempData[key: MessageType.PageError.ToString()] as IList<string>;
+	var pageWarnings = TempData[key: MessageType.PageWarning.ToString()] as IList<string>;
+	var pageSuccesses = TempData[key: MessageType.PageSuccess.ToString()] as IList<string>;
 
-	var pageWarnings =
-		TempData[key: Infrastructure.Messages.MessageType.PageWarning.ToString()] as
-		System.Collections.Generic.IList<string>;
-
-	var pageSuccesses =
-		TempData[key: Infrastructure.Messages.MessageType.PageSuccess.ToString()] as
-		System.Collections.Generic.IList<string>;
-
-	if (pageErrors is not null && pageErrors.Count != 0)
+	if (pageErrors != null && pageErrors.Count != 0)
 	{
 		<div class="alert alert-danger" role="alert">
 			<ul class="mb-0">
@@ -27,7 +19,7 @@
 		</div>
 	}
 
-	if (pageWarnings is not null && pageWarnings.Count != 0)
+	if (pageWarnings != null && pageWarnings.Count != 0)
 	{
 		<div class="alert alert-warning" role="alert">
 			<ul class="mb-0">
@@ -39,7 +31,7 @@
 		</div>
 	}
 
-	if (pageSuccesses is not null && pageSuccesses.Count != 0)
+	if (pageSuccesses != null && pageSuccesses.Count != 0)
 	{
 		<div class="alert alert-success" role="alert">
 			<ul class="mb-0">
@@ -51,4 +43,3 @@
 		</div>
 	}
 }
- *@

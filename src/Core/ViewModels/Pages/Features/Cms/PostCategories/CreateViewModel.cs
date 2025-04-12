@@ -63,7 +63,7 @@ public class CreateViewModel : object
 		ErrorMessageResourceType = typeof(Resources.Messages.Validations),
 		ErrorMessageResourceName = nameof(Resources.Messages.Validations.MaxLength))]
 
-	[System.ComponentModel.DataAnnotations.RegularExpression(
+	[RegularExpression(
 		pattern: Constant.RegularExpression.AToZDigitsUnderline,
 		ErrorMessageResourceType = typeof(Resources.Messages.Validations),
 		ErrorMessageResourceName = nameof(Resources.Messages.Validations.Name))]

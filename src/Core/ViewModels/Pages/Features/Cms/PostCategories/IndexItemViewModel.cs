@@ -11,7 +11,7 @@ public class IndexItemViewModel : object
 		Title = Constant.Format.NullValue;
 	}
 
-	public System.Guid Id { get; set; }
+	public Guid Id { get; set; }
 
 	public bool IsActive { get; set; }
 
@@ -24,6 +24,8 @@ public class IndexItemViewModel : object
 	public bool DisplayInHomePage { get; set; }
 
 	public int PostCount { get; set; }
+
+	public int InactivePostCount { get; set; }
 
 	public int Hits { get; set; }
 

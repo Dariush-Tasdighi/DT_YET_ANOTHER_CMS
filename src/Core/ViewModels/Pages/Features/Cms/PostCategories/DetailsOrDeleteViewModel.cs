@@ -20,6 +20,16 @@ public class DetailsOrDeleteViewModel : UpdateViewModel
 	public int PostCount { get; set; }
 	#endregion /public int PostCount { get; set; }
 
+	#region public int InactivePostCount { get; set; }
+	/// <summary>
+	/// تعداد مطالب
+	/// </summary>
+	[Display(
+		ResourceType = typeof(DataDictionary),
+		Name = nameof(DataDictionary.InactivePostCount))]
+	public int InactivePostCount { get; set; }
+	#endregion /public int InactivePostCount { get; set; }
+
 	#region public DateTimeOffset InsertDateTime { get; set; }
 	/// <summary>
 	/// زمان ایجاد

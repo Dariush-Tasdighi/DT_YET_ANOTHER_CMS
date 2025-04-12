@@ -1,5 +1,6 @@
 using Dtat;
 using Resources;
+using Persistence;
 using Infrastructure;
 using Resources.Messages;
 using Domain.Features.Cms;
@@ -14,7 +15,7 @@ namespace Server.Pages.Features.Cms.PostCategories;
 public class CreateModel : BasePageModelWithApplicationDbContext
 {
 	public CreateModel(
-		Persistence.ApplicationDbContext applicationDbContext) :
+		ApplicationDbContext applicationDbContext) :
 		base(applicationDbContext: applicationDbContext)
 	{
 		ViewModel = new();
@@ -22,6 +23,10 @@ public class CreateModel : BasePageModelWithApplicationDbContext
 
 	[BindProperty]
 	public CreateViewModel ViewModel { get; set; }
+
+	//public void OnGet()
+	//{
+	//}
 
 	public async Task OnGetAsync()
 	{
@@ -37,6 +42,7 @@ public class CreateModel : BasePageModelWithApplicationDbContext
 
 		// **************************************************
 		var name = ViewModel.Name.Fix()!;
+		//var name = ViewModel.Name.Fix();
 
 		var isNameFound =
 			await
@@ -46,8 +52,8 @@ public class CreateModel : BasePageModelWithApplicationDbContext
 
 		if (isNameFound)
 		{
-			var errorMessage =
-				string.Format(Errors.AlreadyExists, DataDictionary.Name);
+			var errorMessage = string.Format
+				(format: Errors.AlreadyExists, arg0: DataDictionary.Name);
 
 			AddPageError(message: errorMessage);
 		}
@@ -55,6 +61,7 @@ public class CreateModel : BasePageModelWithApplicationDbContext
 
 		// **************************************************
 		var title = ViewModel.Title.Fix()!;
+		//var title = ViewModel.Title.Fix();
 
 		var isTitleFound =
 			await
@@ -64,8 +71,8 @@ public class CreateModel : BasePageModelWithApplicationDbContext
 
 		if (isTitleFound)
 		{
-			var errorMessage =
-				string.Format(Errors.AlreadyExists, DataDictionary.Title);
+			var errorMessage = string.Format
+				(format: Errors.AlreadyExists, arg0: DataDictionary.Title);
 
 			AddPageError(message: errorMessage);
 		}
@@ -101,8 +108,8 @@ public class CreateModel : BasePageModelWithApplicationDbContext
 		// **************************************************
 
 		// **************************************************
-		var successMessage =
-			string.Format(Successes.Created, DataDictionary.PostCategory);
+		var successMessage = string.Format
+			(format: Successes.Created, arg0: DataDictionary.PostCategory);
 
 		AddToastSuccess(message: successMessage);
 		// **************************************************

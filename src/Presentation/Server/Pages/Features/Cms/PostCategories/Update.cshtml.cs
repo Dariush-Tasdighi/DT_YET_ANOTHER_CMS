@@ -13,7 +13,9 @@ namespace Server.Pages.Features.Cms.Admin.PostCategories;
 //	Domain.Features.Identity.Enums.RoleEnum.Administrator)]
 public class UpdateModel : BasePageModelWithApplicationDbContext
 {
-	public UpdateModel(ApplicationDbContext applicationDbContext) : base(applicationDbContext: applicationDbContext)
+	public UpdateModel(
+		ApplicationDbContext applicationDbContext) :
+		base(applicationDbContext: applicationDbContext)
 	{
 		ViewModel = new();
 	}
@@ -21,6 +23,7 @@ public class UpdateModel : BasePageModelWithApplicationDbContext
 	[BindProperty]
 	public UpdateViewModel ViewModel { get; set; }
 
+	//public async Task<IActionResult> OnGetAsync(Guid id)
 	public async Task<IActionResult> OnGetAsync(Guid? id)
 	{
 		if (id is null)

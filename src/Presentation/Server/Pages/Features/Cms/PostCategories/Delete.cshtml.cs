@@ -13,7 +13,9 @@ namespace Server.Pages.Features.Cms.PostCategories;
 //	Domain.Features.Identity.Enums.RoleEnum.Administrator)]
 public class DeleteModel : BasePageModelWithApplicationDbContext
 {
-	public DeleteModel(ApplicationDbContext applicationDbContext) : base(applicationDbContext: applicationDbContext)
+	public DeleteModel(
+		ApplicationDbContext applicationDbContext) :
+		base(applicationDbContext: applicationDbContext)
 	{
 		ViewModel = new();
 	}

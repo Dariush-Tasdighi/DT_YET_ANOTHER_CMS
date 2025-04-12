@@ -11,7 +11,9 @@ namespace Server.Pages.Features.Cms.PostCategories;
 //	Domain.Features.Identity.Enums.RoleEnum.Supervisor)]
 public class DetailsModel : BasePageModelWithApplicationDbContext
 {
-	public DetailsModel(ApplicationDbContext applicationDbContext) : base(applicationDbContext: applicationDbContext)
+	public DetailsModel(
+		ApplicationDbContext applicationDbContext) :
+		base(applicationDbContext: applicationDbContext)
 	{
 		ViewModel = new();
 	}
