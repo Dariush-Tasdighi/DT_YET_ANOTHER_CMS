@@ -7,10 +7,10 @@ namespace Dtat.AspNetCore.Mvc.TagHelpers.SectionForm;
 /// <summary>
 /// Checked
 /// </summary>
-[HtmlTargetElement(tag: "section-form-buttons",
+[HtmlTargetElement(tag: "section-form-fieldset",
 	ParentTag = "section-form",
 	TagStructure = TagStructure.NormalOrSelfClosing)]
-public class SectionFormButtonsTagHelper : TagHelper
+public class SectionFormFieldSetTagHelper : TagHelper
 {
 	public async override Task ProcessAsync
 		(TagHelperContext context, TagHelperOutput output)
@@ -22,17 +22,15 @@ public class SectionFormButtonsTagHelper : TagHelper
 		// **************************************************
 
 		// **************************************************
-		var div = new TagBuilder(tagName: "div");
+		var fieldset = new TagBuilder(tagName: "fieldset");
 
-		div.AddCssClass(value: "mb-3");
-
-		div.InnerHtml.AppendHtml(content: originalContents);
+		fieldset.InnerHtml.AppendHtml(content: originalContents);
 		// **************************************************
 
 		// **************************************************
 		output.TagName = null;
 		output.TagMode = TagMode.StartTagAndEndTag;
-		output.Content.SetHtmlContent(htmlContent: div);
+		output.Content.SetHtmlContent(htmlContent: fieldset);
 		// **************************************************
 	}
 }

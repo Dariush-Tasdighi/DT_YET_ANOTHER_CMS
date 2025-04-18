@@ -61,7 +61,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} is not valid!.
+        ///   Looks up a localized string similar to شماره تلفن همراه معتبر نمی‌باشد! شماره تلفن همراه باید دقیقا چهارده رقم بوده و باید با دو صفر، نهصد و هشتاد و نه آغاز شده و تمامی ارقام آن انگلیسی باشند..
         /// </summary>
         public static string CellPhoneNumber {
             get {
@@ -70,7 +70,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} should be equal to {1}!.
+        ///   Looks up a localized string similar to مقدار فیلد {0} باید با مقدار فیلد {1} یکسان باشد!.
         /// </summary>
         public static string Compare {
             get {
@@ -79,7 +79,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to آیا به حذف {0} اطمینان دارید؟.
         /// </summary>
         public static string ConfirmDelete {
             get {
@@ -88,7 +88,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email address is not valid!.
+        ///   Looks up a localized string similar to نشانی پست الکترونیکی معتبر نمی‌باشد!.
         /// </summary>
         public static string EmailAddress {
             get {
@@ -97,7 +97,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} should be greater than {1}!.
+        ///   Looks up a localized string similar to مقدار {0} باید بزرگ‌تر از {1} باشد!.
         /// </summary>
         public static string GreaterThan {
             get {
@@ -106,7 +106,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} should be greater than or equal to {1}!.
+        ///   Looks up a localized string similar to مقدار {0} باید بزرگ‌تر یا مساوی {1} باشد!.
         /// </summary>
         public static string GreaterThanOrEqualTo {
             get {
@@ -115,7 +115,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &apos;{0}&apos; is not valid!.
+        ///   Looks up a localized string similar to &apos;{0}&apos; معتبر نمی‌باشد!.
         /// </summary>
         public static string IP {
             get {
@@ -124,7 +124,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You should use just digits!.
+        ///   Looks up a localized string similar to شما صرفا می‌توانید از ارقام انگلیسی استفاده نمایید!.
         /// </summary>
         public static string JustDigits {
             get {
@@ -133,7 +133,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You should just use a to z, A to Z, Digits and Underline (_) with less than 100 characters!.
+        ///   Looks up a localized string similar to شما فقط می‌توانید از کاراکترهای a تا z کوچک یا بزرگ و یا اعداد و یا زیرخط (_) استفاده کرده و طول رشته (متن) نمی‌تواند از یک‌صد حرف تجاوز کند!.
         /// </summary>
         public static string KeyName {
             get {
@@ -142,7 +142,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The max length of {0} is {1}!.
+        ///   Looks up a localized string similar to حداکثر طول فیلد {0} می‌تواند {1} حرف باشد!.
         /// </summary>
         public static string MaxLength {
             get {
@@ -151,7 +151,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The max length of above field is {1}!.
+        ///   Looks up a localized string similar to حداکثر طول مقدار فیلد فوق می‌تواند {1} کاراکتر باشد!.
         /// </summary>
         public static string MaxLengthGeneric {
             get {
@@ -160,7 +160,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The &apos;{0}&apos; value must be a string with a minimum length of &apos;{1}&apos;!.
+        ///   Looks up a localized string similar to طول متن فیلد &apos;{0}&apos; باید حداقل &apos;{1}&apos; کاراکتر باشد!.
         /// </summary>
         public static string MinLength {
             get {
@@ -169,7 +169,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} is not valid!.
+        ///   Looks up a localized string similar to {0} معتبر نمی‌باشد!.
         /// </summary>
         public static string Name {
             get {
@@ -178,7 +178,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} is not valid!.
+        ///   Looks up a localized string similar to کد ملی معتبر نمی‌باشد! کد ملی باید دقیقا از ده رقم انگلیسی تشکیل شود!.
         /// </summary>
         public static string NationalCode {
             get {
@@ -187,7 +187,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to For password you can use (a-z) or (A-Z) or (0-9) or some of these chars (_!@#$%^&amp;) and the length should be between 8 to 20!.
+        ///   Looks up a localized string similar to طول رشته گذرواژه، باید بین هشت تا بیست کاراکتر باشد. شما می‌توانید از حروف a تا z (کوچک یا بزرگ)، اعداد 0 تا 9 (انگلیسی) و یا یکی از کاراکترهای (_!@#$%^&amp;) استفاده نمایید!.
         /// </summary>
         public static string Password {
             get {
@@ -196,7 +196,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} should be greater than or equal to {1} and less than or equal to {2}!.
+        ///   Looks up a localized string similar to مقدار فیلد {0} باید بزرگ‌تر یا مساوی {1} و کوچک‌تر یا مساوی {2} باشد!.
         /// </summary>
         public static string Range {
             get {
@@ -205,7 +205,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} is required!.
+        ///   Looks up a localized string similar to تکمیل فیلد {0} الزامی است!.
         /// </summary>
         public static string Required {
             get {
@@ -214,7 +214,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You should fill the above field value!.
+        ///   Looks up a localized string similar to تکمیل فیلد فوق الزامی است!.
         /// </summary>
         public static string RequiredGeneric {
             get {
@@ -223,7 +223,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} is not valid!.
+        ///   Looks up a localized string similar to مقدار تم می‌تواند فقط حروف a تا z انگلیسی با حروف کوچک باشد!.
         /// </summary>
         public static string Theme {
             get {
@@ -232,7 +232,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} is not valid!.
+        ///   Looks up a localized string similar to {0} معتبر نمی‌باشد!.
         /// </summary>
         public static string Url {
             get {
@@ -241,7 +241,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} is not valid!.
+        ///   Looks up a localized string similar to شناسه‌کاربری باید از شش تا بیست کاراکتر تشکیل شود. شما می‌توانید از حروف a تا z بزرگ یا کوچک، اعداد از 0 تا 9 انگلیسی و زیرخط استفاده نمایید!.
         /// </summary>
         public static string Username {
             get {
@@ -250,7 +250,7 @@ namespace Resources.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can use just (a to z) or (A to Z) or (0 to 9) or (_) characters! Minimum length should be 6 characters!.
+        ///   Looks up a localized string similar to در مقدار فیلد فوق، شما صرفا می‌توانید از کاراکترهای a تا z (کوچک یا بزرگ)، زیرخط (ـ) و ارقام انگلیسی از صفر تا نه استفاده کرده و طول آن نمی‌تواند از شش کاراکتر کمتر باشد!.
         /// </summary>
         public static string UsernameOrEmailAddress {
             get {

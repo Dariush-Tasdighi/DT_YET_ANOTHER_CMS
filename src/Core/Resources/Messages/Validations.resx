@@ -118,69 +118,69 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CellPhoneNumber" xml:space="preserve">
-    <value>{0} is not valid!</value>
+    <value>شماره تلفن همراه معتبر نمی‌باشد! شماره تلفن همراه باید دقیقا چهارده رقم بوده و باید با دو صفر، نهصد و هشتاد و نه آغاز شده و تمامی ارقام آن انگلیسی باشند.</value>
   </data>
   <data name="Compare" xml:space="preserve">
-    <value>{0} should be equal to {1}!</value>
+    <value>مقدار فیلد {0} باید با مقدار فیلد {1} یکسان باشد!</value>
   </data>
   <data name="ConfirmDelete" xml:space="preserve">
-    <value />
+    <value>آیا به حذف {0} اطمینان دارید؟</value>
   </data>
   <data name="EmailAddress" xml:space="preserve">
-    <value>Email address is not valid!</value>
+    <value>نشانی پست الکترونیکی معتبر نمی‌باشد!</value>
   </data>
   <data name="GreaterThan" xml:space="preserve">
-    <value>{0} should be greater than {1}!</value>
+    <value>مقدار {0} باید بزرگ‌تر از {1} باشد!</value>
   </data>
   <data name="GreaterThanOrEqualTo" xml:space="preserve">
-    <value>{0} should be greater than or equal to {1}!</value>
+    <value>مقدار {0} باید بزرگ‌تر یا مساوی {1} باشد!</value>
   </data>
   <data name="IP" xml:space="preserve">
-    <value>'{0}' is not valid!</value>
+    <value>'{0}' معتبر نمی‌باشد!</value>
   </data>
   <data name="JustDigits" xml:space="preserve">
-    <value>You should use just digits!</value>
+    <value>شما صرفا می‌توانید از ارقام انگلیسی استفاده نمایید!</value>
   </data>
   <data name="KeyName" xml:space="preserve">
-    <value>You should just use a to z, A to Z, Digits and Underline (_) with less than 100 characters!</value>
+    <value>شما فقط می‌توانید از کاراکترهای a تا z کوچک یا بزرگ و یا اعداد و یا زیرخط (_) استفاده کرده و طول رشته (متن) نمی‌تواند از یک‌صد حرف تجاوز کند!</value>
   </data>
   <data name="MaxLength" xml:space="preserve">
-    <value>The max length of {0} is {1}!</value>
+    <value>حداکثر طول فیلد {0} می‌تواند {1} حرف باشد!</value>
   </data>
   <data name="MaxLengthGeneric" xml:space="preserve">
-    <value>The max length of above field is {1}!</value>
+    <value>حداکثر طول مقدار فیلد فوق می‌تواند {1} کاراکتر باشد!</value>
   </data>
   <data name="MinLength" xml:space="preserve">
-    <value>The '{0}' value must be a string with a minimum length of '{1}'!</value>
+    <value>طول متن فیلد '{0}' باید حداقل '{1}' کاراکتر باشد!</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>{0} is not valid!</value>
+    <value>{0} معتبر نمی‌باشد!</value>
   </data>
   <data name="NationalCode" xml:space="preserve">
-    <value>{0} is not valid!</value>
+    <value>کد ملی معتبر نمی‌باشد! کد ملی باید دقیقا از ده رقم انگلیسی تشکیل شود!</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>For password you can use (a-z) or (A-Z) or (0-9) or some of these chars (_!@#$%^&amp;) and the length should be between 8 to 20!</value>
+    <value>طول رشته گذرواژه، باید بین هشت تا بیست کاراکتر باشد. شما می‌توانید از حروف a تا z (کوچک یا بزرگ)، اعداد 0 تا 9 (انگلیسی) و یا یکی از کاراکترهای (_!@#$%^&amp;) استفاده نمایید!</value>
   </data>
   <data name="Range" xml:space="preserve">
-    <value>{0} should be greater than or equal to {1} and less than or equal to {2}!</value>
+    <value>مقدار فیلد {0} باید بزرگ‌تر یا مساوی {1} و کوچک‌تر یا مساوی {2} باشد!</value>
   </data>
   <data name="Required" xml:space="preserve">
-    <value>{0} is required!</value>
+    <value>تکمیل فیلد {0} الزامی است!</value>
   </data>
   <data name="RequiredGeneric" xml:space="preserve">
-    <value>You should fill the above field value!</value>
+    <value>تکمیل فیلد فوق الزامی است!</value>
   </data>
   <data name="Theme" xml:space="preserve">
-    <value>{0} is not valid!</value>
+    <value>مقدار تم می‌تواند فقط حروف a تا z انگلیسی با حروف کوچک باشد!</value>
   </data>
   <data name="Url" xml:space="preserve">
-    <value>{0} is not valid!</value>
+    <value>{0} معتبر نمی‌باشد!</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>{0} is not valid!</value>
+    <value>شناسه‌کاربری باید از شش تا بیست کاراکتر تشکیل شود. شما می‌توانید از حروف a تا z بزرگ یا کوچک، اعداد از 0 تا 9 انگلیسی و زیرخط استفاده نمایید!</value>
   </data>
   <data name="UsernameOrEmailAddress" xml:space="preserve">
-    <value>You can use just (a to z) or (A to Z) or (0 to 9) or (_) characters! Minimum length should be 6 characters!</value>
+    <value>در مقدار فیلد فوق، شما صرفا می‌توانید از کاراکترهای a تا z (کوچک یا بزرگ)، زیرخط (ـ) و ارقام انگلیسی از صفر تا نه استفاده کرده و طول آن نمی‌تواند از شش کاراکتر کمتر باشد!</value>
   </data>
 </root>

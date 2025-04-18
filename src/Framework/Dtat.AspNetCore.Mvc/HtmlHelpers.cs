@@ -50,10 +50,12 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatDisplayInlineBoolean(this IHtmlHelper html, bool? value)
 	{
-		if (html is null)
-		{
-			throw new ArgumentNullException(paramName: nameof(html));
-		}
+		//if (html is null)
+		//{
+		//	throw new ArgumentNullException(paramName: nameof(html));
+		//}
+
+		ArgumentNullException.ThrowIfNull(argument: html);
 
 		var result = "<i class='bi bi-square'></i>";
 
@@ -85,10 +87,7 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatDisplayBoolean(this IHtmlHelper html, bool? value)
 	{
-		if (html is null)
-		{
-			throw new ArgumentNullException(paramName: nameof(html));
-		}
+		ArgumentNullException.ThrowIfNull(argument: html);
 
 		var div = new TagBuilder(tagName: "div");
 
@@ -125,6 +124,8 @@ public static class HtmlHelpers : object
 	public static IHtmlContent DtatDisplayStringWithTd
 		(this IHtmlHelper html, string? value, bool? isLeftToRight = null)
 	{
+		ArgumentNullException.ThrowIfNull(argument: html);
+
 		var td = new TagBuilder(tagName: "td");
 
 		if (isLeftToRight is not null && isLeftToRight.Value)
@@ -141,6 +142,8 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatDisplayBooleanWithTd(this IHtmlHelper html, bool? value)
 	{
+		ArgumentNullException.ThrowIfNull(argument: html);
+
 		var td = new TagBuilder(tagName: "td");
 
 		td.AddCssClass(value: "text-center");
@@ -154,6 +157,8 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatDisplayIntegerWithTd(this IHtmlHelper html, long? value)
 	{
+		ArgumentNullException.ThrowIfNull(argument: html);
+
 		var td = new TagBuilder(tagName: "td");
 
 		td.Attributes.Add(key: "dir", value: "ltr");
@@ -167,6 +172,8 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatDisplayDateTime(this IHtmlHelper html, System.DateTime? value)
 	{
+		ArgumentNullException.ThrowIfNull(argument: html);
+
 		if (value is null)
 		{
 			return html.Raw(value: Constant.Format.NullValue);
@@ -181,6 +188,8 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatDisplayDateOffset(this IHtmlHelper html, DateTimeOffset? value)
 	{
+		ArgumentNullException.ThrowIfNull(argument: html);
+
 		if (value is null)
 		{
 			return html.Raw(value: Constant.Format.NullValue);
@@ -195,6 +204,8 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatDisplayDateTimeOffset(this IHtmlHelper html, DateTimeOffset? value)
 	{
+		ArgumentNullException.ThrowIfNull(argument: html);
+
 		if (value is null)
 		{
 			return html.Raw(value: Constant.Format.NullValue);
@@ -209,6 +220,8 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatDisplayDateTimeWithTd(this IHtmlHelper html, DateTime? value)
 	{
+		ArgumentNullException.ThrowIfNull(argument: html);
+
 		var td = new TagBuilder(tagName: "td");
 
 		td.Attributes.Add(key: "dir", value: "ltr");
@@ -222,6 +235,8 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatDisplayDateTimeOffsetWithTd(this IHtmlHelper html, DateTimeOffset? value)
 	{
+		ArgumentNullException.ThrowIfNull(argument: html);
+
 		var td = new TagBuilder(tagName: "td");
 
 		td.Attributes.Add(key: "dir", value: "ltr");
@@ -235,12 +250,9 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatGetLinkCaptionForList(this IHtmlHelper html)
 	{
-		if (html is null)
-		{
-			throw new ArgumentNullException(paramName: nameof(html));
-		}
+		ArgumentNullException.ThrowIfNull(argument: html);
 
-		var icon = TagHelpers.Utility.GetIconList();
+		var icon = Utility.GetIconList();
 
 		var span = new TagBuilder(tagName: "span");
 
@@ -258,12 +270,9 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatGetLinkCaptionForDetails(this IHtmlHelper html)
 	{
-		if (html is null)
-		{
-			throw new ArgumentNullException(paramName: nameof(html));
-		}
+		ArgumentNullException.ThrowIfNull(argument: html);
 
-		var icon = TagHelpers.Utility.GetIconDetails();
+		var icon = Utility.GetIconDetails();
 
 		var span = new TagBuilder(tagName: "span");
 
@@ -281,12 +290,9 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatGetLinkCaptionForCreate(this IHtmlHelper html)
 	{
-		if (html is null)
-		{
-			throw new ArgumentNullException(paramName: nameof(html));
-		}
+		ArgumentNullException.ThrowIfNull(argument: html);
 
-		var icon = TagHelpers.Utility.GetIconCreate();
+		var icon = Utility.GetIconCreate();
 
 		var span = new TagBuilder(tagName: "span");
 
@@ -304,12 +310,9 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatGetLinkCaptionForUpdate(this IHtmlHelper html)
 	{
-		if (html is null)
-		{
-			throw new ArgumentNullException(paramName: nameof(html));
-		}
+		ArgumentNullException.ThrowIfNull(argument: html);
 
-		var icon = TagHelpers.Utility.GetIconUpdate();
+		var icon = Utility.GetIconUpdate();
 
 		var span = new TagBuilder(tagName: "span");
 
@@ -327,12 +330,9 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatGetLinkCaptionForUpdateInformationsAgain(this IHtmlHelper html)
 	{
-		if (html is null)
-		{
-			throw new ArgumentNullException(paramName: nameof(html));
-		}
+		ArgumentNullException.ThrowIfNull(argument: html);
 
-		var icon = TagHelpers.Utility.GetIconReset();
+		var icon = Utility.GetIconReset();
 
 		var span = new TagBuilder(tagName: "span");
 
@@ -350,12 +350,9 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatGetLinkCaptionForDelete(this IHtmlHelper html)
 	{
-		if (html is null)
-		{
-			throw new ArgumentNullException(paramName: nameof(html));
-		}
+		ArgumentNullException.ThrowIfNull(argument: html);
 
-		var icon = TagHelpers.Utility.GetIconDelete();
+		var icon = Utility.GetIconDelete();
 
 		var span = new TagBuilder(tagName: "span");
 
@@ -373,70 +370,52 @@ public static class HtmlHelpers : object
 
 	public static IHtmlContent DtatGetIconDetails(this IHtmlHelper html)
 	{
-		if (html is null)
-		{
-			throw new ArgumentNullException(paramName: nameof(html));
-		}
+		ArgumentNullException.ThrowIfNull(argument: html);
 
-		var icon = TagHelpers.Utility.GetIconDetails();
+		var icon = Utility.GetIconDetails();
 
 		return icon;
 	}
 
 	public static IHtmlContent DtatGetIconDisplay(this IHtmlHelper html)
 	{
-		if (html is null)
-		{
-			throw new ArgumentNullException(paramName: nameof(html));
-		}
+		ArgumentNullException.ThrowIfNull(argument: html);
 
-		var icon = TagHelpers.Utility.GetIconDisplay();
+		var icon = Utility.GetIconDisplay();
 
 		return icon;
 	}
 
 	public static IHtmlContent DtatGetIconCreate(this IHtmlHelper html)
 	{
-		if (html is null)
-		{
-			throw new ArgumentNullException(paramName: nameof(html));
-		}
+		ArgumentNullException.ThrowIfNull(argument: html);
 
-		var icon = TagHelpers.Utility.GetIconCreate();
+		var icon = Utility.GetIconCreate();
 
 		return icon;
 	}
 
 	public static IHtmlContent DtatGetIconUpdate(this IHtmlHelper html)
 	{
-		if (html is null)
-		{
-			throw new ArgumentNullException(paramName: nameof(html));
-		}
+		ArgumentNullException.ThrowIfNull(argument: html);
 
-		var icon = TagHelpers.Utility.GetIconUpdate();
+		var icon = Utility.GetIconUpdate();
 
 		return icon;
 	}
 
 	public static IHtmlContent DtatGetIconDelete(this IHtmlHelper html)
 	{
-		if (html is null)
-		{
-			throw new ArgumentNullException(paramName: nameof(html));
-		}
+		ArgumentNullException.ThrowIfNull(argument: html);
 
-		var icon = TagHelpers.Utility.GetIconDelete();
+		var icon = Utility.GetIconDelete();
 
 		return icon;
 	}
 
 	public static IHtmlContent DtatGetIconCustom(this IHtmlHelper html, string iconName)
 	{
-		if (html is null)
-		{
-			throw new ArgumentNullException(paramName: nameof(html));
-		}
+		ArgumentNullException.ThrowIfNull(argument: html);
 
 		var icon = Utility.GetIconCustom(iconName: iconName);
 
@@ -446,6 +425,8 @@ public static class HtmlHelpers : object
 	public static SelectList DtatGetEnumSelectList<TEnum>
 		(this IHtmlHelper html, int? selectedValue = null) where TEnum : struct
 	{
+		ArgumentNullException.ThrowIfNull(argument: html);
+
 		var list = html.GetEnumSelectList<TEnum>().ToList();
 
 		// **************************************************

@@ -12,51 +12,48 @@
 	ViewData[Constant.ViewDataKeyName.PageTitle] = pageTitle;
 }
 
-<form method="post">
+<section-form>
+	<section-form-fieldset>
+		<section-form-header>
+			@(pageTitle)
+		</section-form-header>
 
-	<section-form>
-		<fieldset>
-			<section-form-header>
-				@(pageTitle)
-			</section-form-header>
+		<partial name="PartialViews/_DisplayPageMessages" />
 
-			<partial name="PartialViews/_DisplayPageMessages" />
+		<dtat-full-checkbox asp-for="ViewModel.IsActive" />
 
-			<dtat-full-checkbox asp-for="ViewModel.IsActive" />
+		<dtat-full-input asp-for="ViewModel.Ordering" />
 
-			<dtat-full-input asp-for="ViewModel.Ordering" />
+		<dtat-full-input asp-for="ViewModel.Name" dir="ltr" />
 
-			<dtat-full-input asp-for="ViewModel.Name" dir="ltr" />
+		<dtat-full-input asp-for="ViewModel.Title" />
 
-			<dtat-full-input asp-for="ViewModel.Title" />
+		<dtat-full-input asp-for="ViewModel.Description" />
+	</section-form-fieldset>
 
-			<dtat-full-input asp-for="ViewModel.Description" />
+	<section-form-buttons>
+		<button-create />
+		<button-reset />
+	</section-form-buttons>
 
-			<dtat-full-input asp-for="ViewModel.ImageUrl" dir="ltr" />
+	<section-form-footer>
+		<a asp-page="Index">
+			@(Html.DtatGetLinkCaptionForList())
+		</a>
+	</section-form-footer>
+</section-form>
 
-			<dtat-full-input asp-for="ViewModel.CoverImageUrl" dir="ltr" />
+@* <dtat-full-input asp-for="ViewModel.ImageUrl" dir="ltr" />
 
-			<dtat-full-input asp-for="ViewModel.MaxPostCountInMainPage" />
+<dtat-full-input asp-for="ViewModel.CoverImageUrl" dir="ltr" />
 
-			<dtat-full-checkbox asp-for="ViewModel.DisplayInHomePage" />
+<dtat-full-input asp-for="ViewModel.MaxPostCountInMainPage" />
 
-			<dtat-full-input asp-for="ViewModel.MaxPostCountInHomePage" />
+<dtat-full-checkbox asp-for="ViewModel.DisplayInHomePage" />
 
-			<dtat-full-input asp-for="ViewModel.Hits" />
+<dtat-full-input asp-for="ViewModel.MaxPostCountInHomePage" />
 
-			<dtat-full-textarea asp-for="ViewModel.Body" />
-		</fieldset>
+<dtat-full-input asp-for="ViewModel.Hits" />
 
-		<section-form-buttons>
-			<button-create />
-			<button-reset />
-		</section-form-buttons>
-
-		<section-form-footer>
-			<a asp-page="Index">
-				@(Html.DtatGetLinkCaptionForList())
-			</a>
-		</section-form-footer>
-	</section-form>
-
-</form>
+<dtat-full-textarea asp-for="ViewModel.Body" />
+ *@

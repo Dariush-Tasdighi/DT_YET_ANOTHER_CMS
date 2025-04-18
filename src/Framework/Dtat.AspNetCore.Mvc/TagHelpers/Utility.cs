@@ -1,14 +1,19 @@
-﻿using System.Linq;
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Dtat.AspNetCore.Mvc.TagHelpers;
 
 public static class Utility : object
 {
-	public static Microsoft.AspNetCore.Mvc.Rendering.TagBuilder GetIconList()
+	public static TagBuilder GetIconList()
 	{
-		var icon =
-			new Microsoft.AspNetCore.Mvc
-			.Rendering.TagBuilder(tagName: "i");
+		var icon = new TagBuilder(tagName: "i");
 
 		icon.AddCssClass(value: "mx-1");
 		icon.AddCssClass(value: "bi");
@@ -17,11 +22,9 @@ public static class Utility : object
 		return icon;
 	}
 
-	public static Microsoft.AspNetCore.Mvc.Rendering.TagBuilder GetIconDetails()
+	public static TagBuilder GetIconDetails()
 	{
-		var icon =
-			new Microsoft.AspNetCore.Mvc
-			.Rendering.TagBuilder(tagName: "i");
+		var icon = new TagBuilder(tagName: "i");
 
 		icon.AddCssClass(value: "mx-1");
 		icon.AddCssClass(value: "bi");
@@ -30,11 +33,9 @@ public static class Utility : object
 		return icon;
 	}
 
-	public static Microsoft.AspNetCore.Mvc.Rendering.TagBuilder GetIconDisplay()
+	public static TagBuilder GetIconDisplay()
 	{
-		var icon =
-			new Microsoft.AspNetCore.Mvc
-			.Rendering.TagBuilder(tagName: "i");
+		var icon = new TagBuilder(tagName: "i");
 
 		icon.AddCssClass(value: "mx-1");
 		icon.AddCssClass(value: "bi");
@@ -43,11 +44,9 @@ public static class Utility : object
 		return icon;
 	}
 
-	public static Microsoft.AspNetCore.Mvc.Rendering.TagBuilder GetIconCreate()
+	public static TagBuilder GetIconCreate()
 	{
-		var icon =
-			new Microsoft.AspNetCore.Mvc
-			.Rendering.TagBuilder(tagName: "i");
+		var icon = new TagBuilder(tagName: "i");
 
 		icon.AddCssClass(value: "mx-1");
 		icon.AddCssClass(value: "bi");
@@ -56,11 +55,9 @@ public static class Utility : object
 		return icon;
 	}
 
-	public static Microsoft.AspNetCore.Mvc.Rendering.TagBuilder GetIconUpdate()
+	public static TagBuilder GetIconUpdate()
 	{
-		var icon =
-			new Microsoft.AspNetCore.Mvc
-			.Rendering.TagBuilder(tagName: "i");
+		var icon = new TagBuilder(tagName: "i");
 
 		icon.AddCssClass(value: "mx-1");
 		icon.AddCssClass(value: "bi");
@@ -69,11 +66,9 @@ public static class Utility : object
 		return icon;
 	}
 
-	public static Microsoft.AspNetCore.Mvc.Rendering.TagBuilder GetIconDelete()
+	public static TagBuilder GetIconDelete()
 	{
-		var icon =
-			new Microsoft.AspNetCore.Mvc
-			.Rendering.TagBuilder(tagName: "i");
+		var icon = new TagBuilder(tagName: "i");
 
 		icon.AddCssClass(value: "mx-1");
 		icon.AddCssClass(value: "bi");
@@ -82,11 +77,9 @@ public static class Utility : object
 		return icon;
 	}
 
-	public static Microsoft.AspNetCore.Mvc.Rendering.TagBuilder GetIconReset()
+	public static TagBuilder GetIconReset()
 	{
-		var icon =
-			new Microsoft.AspNetCore.Mvc
-			.Rendering.TagBuilder(tagName: "i");
+		var icon = new TagBuilder(tagName: "i");
 
 		icon.AddCssClass(value: "mx-1");
 		icon.AddCssClass(value: "bi");
@@ -95,11 +88,9 @@ public static class Utility : object
 		return icon;
 	}
 
-	public static Microsoft.AspNetCore.Mvc.Rendering.TagBuilder GetIconSend()
+	public static TagBuilder GetIconSend()
 	{
-		var icon =
-			new Microsoft.AspNetCore.Mvc
-			.Rendering.TagBuilder(tagName: "i");
+		var icon = new TagBuilder(tagName: "i");
 
 		icon.AddCssClass(value: "mx-1");
 		icon.AddCssClass(value: "bi");
@@ -108,11 +99,9 @@ public static class Utility : object
 		return icon;
 	}
 
-	public static Microsoft.AspNetCore.Mvc.Rendering.TagBuilder GetIconSearch()
+	public static TagBuilder GetIconSearch()
 	{
-		var icon =
-			new Microsoft.AspNetCore.Mvc
-			.Rendering.TagBuilder(tagName: "i");
+		var icon = new TagBuilder(tagName: "i");
 
 		icon.AddCssClass(value: "mx-1");
 		icon.AddCssClass(value: "bi");
@@ -121,11 +110,9 @@ public static class Utility : object
 		return icon;
 	}
 
-	public static Microsoft.AspNetCore.Mvc.Rendering.TagBuilder GetIconSubmit()
+	public static TagBuilder GetIconSubmit()
 	{
-		var icon =
-			new Microsoft.AspNetCore.Mvc
-			.Rendering.TagBuilder(tagName: "i");
+		var icon = new TagBuilder(tagName: "i");
 
 		icon.AddCssClass(value: "mx-1");
 		icon.AddCssClass(value: "bi");
@@ -134,11 +121,9 @@ public static class Utility : object
 		return icon;
 	}
 
-	public static Microsoft.AspNetCore.Mvc.Rendering.TagBuilder GetIconCustom(string iconName)
+	public static TagBuilder GetIconCustom(string iconName)
 	{
-		var icon =
-			new Microsoft.AspNetCore.Mvc
-			.Rendering.TagBuilder(tagName: "i");
+		var icon = new TagBuilder(tagName: "i");
 
 		icon.AddCssClass(value: "mx-1");
 		icon.AddCssClass(value: "bi");
@@ -148,8 +133,7 @@ public static class Utility : object
 	}
 
 	public static void CreateOrMergeAttribute
-		(string name, object content,
-		Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput output)
+		(string name, object content, TagHelperOutput output)
 	{
 		var currentAttribute =
 			output.Attributes
@@ -158,82 +142,60 @@ public static class Utility : object
 
 		if (currentAttribute is null)
 		{
-			var attribute =
-				new Microsoft.AspNetCore.Razor.TagHelpers
-				.TagHelperAttribute(name: name, value: content);
+			var attribute = new TagHelperAttribute(name: name, value: content);
 
-			output.Attributes
-				.Add(attribute: attribute);
+			output.Attributes.Add(attribute: attribute);
 		}
 		else
 		{
-			var value =
-				$"{currentAttribute.Value} {content}";
+			var value = $"{currentAttribute.Value} {content}";
 
-			var newAttribute =
-				new Microsoft.AspNetCore.Razor.TagHelpers
-				.TagHelperAttribute(name: name, value: value,
-				valueStyle: currentAttribute.ValueStyle);
+			var newAttribute = new TagHelperAttribute
+				(name: name, value: value, valueStyle: currentAttribute.ValueStyle);
 
-			output.Attributes
-				.Remove(attribute: currentAttribute);
+			output.Attributes.Remove(attribute: currentAttribute);
 
-			output.Attributes
-				.Add(attribute: newAttribute);
+			output.Attributes.Add(attribute: newAttribute);
 		}
 	}
 
-	public static async
-		System.Threading.Tasks.Task<string> GenerateLabelAsync
-		(Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator generator,
-		Microsoft.AspNetCore.Mvc.Rendering.ViewContext viewContext,
-		Microsoft.AspNetCore.Mvc.ViewFeatures.ModelExpression @for, string? cssClass = null)
+	public static async Task<string> GenerateLabelAsync(
+		IHtmlGenerator generator, ViewContext viewContext,
+		ModelExpression @for, string? cssClass = null)
 	{
-		var tagBuilder =
-			generator.GenerateLabel
-			(viewContext: viewContext,
-			modelExplorer: @for.ModelExplorer,
+		var tagBuilder = generator.GenerateLabel(
+			viewContext: viewContext, modelExplorer: @for.ModelExplorer,
 			expression: @for.Name, labelText: null, htmlAttributes: null);
 
 		if (cssClass is null)
 		{
-			tagBuilder.AddCssClass
-				(value: "form-label");
+			tagBuilder.AddCssClass(value: "form-label");
 		}
 		else
 		{
 			tagBuilder.AddCssClass(value: cssClass);
 		}
 
-		var writer =
-			new System.IO.StringWriter();
+		var writer = new StringWriter();
 
-		tagBuilder.WriteTo(writer: writer,
-			encoder: Microsoft.AspNetCore.Razor.TagHelpers.NullHtmlEncoder.Default);
+		tagBuilder.WriteTo(writer: writer, encoder: NullHtmlEncoder.Default);
 
-		var result =
-			writer.ToString();
+		var result = writer.ToString();
 
 		await writer.DisposeAsync();
 
 		return result;
 	}
 
-	public static async
-		System.Threading.Tasks.Task<string> GenerateTextBoxAsync
-		(Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator generator,
-		Microsoft.AspNetCore.Mvc.Rendering.ViewContext viewContext,
-		Microsoft.AspNetCore.Mvc.ViewFeatures.ModelExpression @for,
-		bool readOnly = false, string? dir = null)
+	public static async Task<string> GenerateTextBoxAsync(
+		IHtmlGenerator generator, ViewContext viewContext,
+		ModelExpression @for, bool readOnly = false, string? dir = null)
 	{
-		var tagBuilder =
-			generator.GenerateTextBox
-			(viewContext: viewContext,
-			modelExplorer: @for.ModelExplorer, expression: @for.Name,
-			value: @for.Model, format: null, htmlAttributes: null);
+		var tagBuilder = generator.GenerateTextBox(
+			viewContext: viewContext, modelExplorer: @for.ModelExplorer,
+			expression: @for.Name, value: @for.Model, format: null, htmlAttributes: null);
 
-		tagBuilder.AddCssClass
-			(value: "form-control");
+		tagBuilder.AddCssClass(value: "form-control");
 
 		if (string.IsNullOrWhiteSpace(value: dir) == false)
 		{
@@ -265,48 +227,36 @@ public static class Utility : object
 			tagBuilder.Attributes.Add(key: "readonly", value: "readonly");
 		}
 
-		var writer =
-			new System.IO.StringWriter();
+		var writer = new StringWriter();
 
-		tagBuilder.WriteTo(writer: writer,
-			encoder: Microsoft.AspNetCore.Razor.TagHelpers.NullHtmlEncoder.Default);
+		tagBuilder.WriteTo(writer: writer, encoder: NullHtmlEncoder.Default);
 
-		var result =
-			writer.ToString();
+		var result = writer.ToString();
 
 		await writer.DisposeAsync();
 
 		return result;
 	}
 
-	public static async
-		System.Threading.Tasks.Task<string> GeneratePasswordTextBoxAsync
-		(Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator generator,
-		Microsoft.AspNetCore.Mvc.Rendering.ViewContext viewContext,
-		Microsoft.AspNetCore.Mvc.ViewFeatures.ModelExpression @for)
+	public static async Task<string> GeneratePasswordTextBoxAsync(
+		IHtmlGenerator generator, ViewContext viewContext, ModelExpression @for)
 	{
-		var tagBuilder =
-			generator.GenerateTextBox
-			(viewContext: viewContext,
-			modelExplorer: @for.ModelExplorer, expression: @for.Name,
-			value: @for.Model, format: null, htmlAttributes: null);
+		var tagBuilder = generator.GenerateTextBox(
+			viewContext: viewContext, modelExplorer: @for.ModelExplorer,
+			expression: @for.Name, value: @for.Model, format: null, htmlAttributes: null);
 
-		tagBuilder.AddCssClass
-			(value: "form-control");
+		tagBuilder.AddCssClass(value: "form-control");
 
 		tagBuilder.AddCssClass(value: "ltr");
 
 		tagBuilder.Attributes.Remove(key: "type");
 		tagBuilder.Attributes.Add(key: "type", value: "password");
 
-		var writer =
-			new System.IO.StringWriter();
+		var writer = new StringWriter();
 
-		tagBuilder.WriteTo(writer: writer,
-			encoder: Microsoft.AspNetCore.Razor.TagHelpers.NullHtmlEncoder.Default);
+		tagBuilder.WriteTo(writer: writer, encoder: NullHtmlEncoder.Default);
 
-		var result =
-			writer.ToString();
+		var result = writer.ToString();
 
 		await writer.DisposeAsync();
 
@@ -314,53 +264,38 @@ public static class Utility : object
 	}
 
 
-	public static async
-		System.Threading.Tasks.Task<string> GenerateCheckBoxAsync
-		(Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator generator,
-		Microsoft.AspNetCore.Mvc.Rendering.ViewContext viewContext,
-		Microsoft.AspNetCore.Mvc.ViewFeatures.ModelExpression @for)
+	public static async Task<string> GenerateCheckBoxAsync(
+		IHtmlGenerator generator, ViewContext viewContext, ModelExpression @for)
 	{
 		bool? isChecked = null;
 
 		if (@for.Model is not null)
 		{
-			isChecked =
-				System.Convert
-				.ToBoolean(value: @for.Model);
+			isChecked = Convert.ToBoolean(value: @for.Model);
 		}
 
-		var tagBuilder =
-			generator.GenerateCheckBox
-			(viewContext: viewContext, modelExplorer: @for.ModelExplorer,
+		var tagBuilder = generator.GenerateCheckBox(
+			viewContext: viewContext, modelExplorer: @for.ModelExplorer,
 			expression: @for.Name, isChecked: isChecked, htmlAttributes: null);
 
-		tagBuilder.AddCssClass
-			(value: "form-check-input");
+		tagBuilder.AddCssClass(value: "form-check-input");
 
-		var writer =
-			new System.IO.StringWriter();
+		var writer = new StringWriter();
 
-		tagBuilder.WriteTo(writer: writer,
-			encoder: Microsoft.AspNetCore.Razor.TagHelpers.NullHtmlEncoder.Default);
+		tagBuilder.WriteTo(writer: writer, encoder: NullHtmlEncoder.Default);
 
-		var result =
-			writer.ToString();
+		var result = writer.ToString();
 
 		await writer.DisposeAsync();
 
 		return result;
 	}
 
-	public static async
-		System.Threading.Tasks.Task<string> GenerateSelectAsync
-		(Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator generator,
-		Microsoft.AspNetCore.Mvc.Rendering.ViewContext viewContext,
-		Microsoft.AspNetCore.Mvc.ViewFeatures.ModelExpression @for,
-		System.Collections.Generic.IEnumerable
-			<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem> selectList)
+	public static async Task<string> GenerateSelectAsync(
+		IHtmlGenerator generator, ViewContext viewContext,
+		ModelExpression @for, IEnumerable<SelectListItem> selectList)
 	{
-		var currentValues =
-			new System.Collections.Generic.List<string>();
+		var currentValues = new List<string>();
 
 		if (@for is null)
 		{
@@ -371,15 +306,13 @@ public static class Utility : object
 		{
 			string? value;
 
-			if(@for.Model.GetType().IsEnum)
+			if (@for.Model.GetType().IsEnum)
 			{
-				value =
-					((int)@for.Model).ToString();
+				value = ((int)@for.Model).ToString();
 			}
 			else
 			{
-				value =
-					@for.Model.ToString();
+				value = @for.Model.ToString();
 			}
 
 			if (value is not null)
@@ -388,24 +321,18 @@ public static class Utility : object
 			}
 		}
 
-		var tagBuilder =
-			generator.GenerateSelect
-			(viewContext: viewContext,
-			modelExplorer: @for.ModelExplorer,
+		var tagBuilder = generator.GenerateSelect(
+			viewContext: viewContext, modelExplorer: @for.ModelExplorer,
 			optionLabel: null, expression: @for.Name, selectList: selectList,
 			currentValues: currentValues, allowMultiple: false, htmlAttributes: null);
 
-		tagBuilder.AddCssClass
-			(value: "form-select");
+		tagBuilder.AddCssClass(value: "form-select");
 
-		var writer =
-			new System.IO.StringWriter();
+		var writer = new StringWriter();
 
-		tagBuilder.WriteTo(writer: writer,
-			encoder: Microsoft.AspNetCore.Razor.TagHelpers.NullHtmlEncoder.Default);
+		tagBuilder.WriteTo(writer: writer, encoder: NullHtmlEncoder.Default);
 
-		var result =
-			writer.ToString();
+		var result = writer.ToString();
 
 		await writer.DisposeAsync();
 
@@ -413,91 +340,67 @@ public static class Utility : object
 	}
 
 	public static async
-		System.Threading.Tasks.Task<string> GenerateTextAreaAsync
-		(Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator generator,
-		Microsoft.AspNetCore.Mvc.Rendering.ViewContext viewContext,
-		Microsoft.AspNetCore.Mvc.ViewFeatures.ModelExpression @for, string? dir = null)
+		Task<string> GenerateTextAreaAsync(IHtmlGenerator generator,
+		ViewContext viewContext, ModelExpression @for, string? dir = null)
 	{
-		var tagBuilder =
-			generator.GenerateTextArea
-			(viewContext: viewContext, modelExplorer: @for.ModelExplorer,
+		var tagBuilder = generator.GenerateTextArea(
+			viewContext: viewContext, modelExplorer: @for.ModelExplorer,
 			expression: @for.Name, rows: 3, columns: 60, htmlAttributes: null);
 
-		tagBuilder.AddCssClass
-			(value: "form-control");
+		tagBuilder.AddCssClass(value: "form-control");
 
 		if (string.IsNullOrWhiteSpace(value: dir) == false)
 		{
 			tagBuilder.Attributes.Add(key: "dir", value: dir);
 		}
 
-		var writer =
-			new System.IO.StringWriter();
+		var writer = new StringWriter();
 
-		tagBuilder.WriteTo(writer: writer,
-			encoder: Microsoft.AspNetCore.Razor.TagHelpers.NullHtmlEncoder.Default);
+		tagBuilder.WriteTo(writer: writer, encoder: NullHtmlEncoder.Default);
 
-		var result =
-			writer.ToString();
+		var result = writer.ToString();
 
 		await writer.DisposeAsync();
 
 		return result;
 	}
 
-	public static async
-		System.Threading.Tasks.Task<string> GenerateValidationMessageAsync
-		(Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator generator,
-		Microsoft.AspNetCore.Mvc.Rendering.ViewContext viewContext,
-		Microsoft.AspNetCore.Mvc.ViewFeatures.ModelExpression @for)
+	public static async Task<string> GenerateValidationMessageAsync(
+		IHtmlGenerator generator, ViewContext viewContext, ModelExpression @for)
 	{
-		var tagBuilder =
-			generator.GenerateValidationMessage
-			(viewContext: viewContext,
-			modelExplorer: @for.ModelExplorer,
+		var tagBuilder = generator.GenerateValidationMessage(
+			viewContext: viewContext, modelExplorer: @for.ModelExplorer,
 			expression: @for.Name, message: null, tag: null, htmlAttributes: null);
 
 		tagBuilder.AddCssClass(value: "text-danger");
 
-		var writer =
-			new System.IO.StringWriter();
+		var writer = new StringWriter();
 
-		tagBuilder.WriteTo(writer: writer,
-			encoder: Microsoft.AspNetCore.Razor.TagHelpers.NullHtmlEncoder.Default);
+		tagBuilder.WriteTo(writer: writer, encoder: NullHtmlEncoder.Default);
 
-		var result =
-			writer.ToString();
+		var result = writer.ToString();
 
 		await writer.DisposeAsync();
 
 		return result;
 	}
 
-	public static async
-		System.Threading.Tasks.Task<string> GenerateSelectAsync
-		(Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator generator,
-		Microsoft.AspNetCore.Mvc.Rendering.ViewContext viewContext,
-		Microsoft.AspNetCore.Mvc.ViewFeatures.ModelExpression @for,
-		System.Collections.Generic.IList
-		<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem> @Items,
-		string? @OptionLabel)
+	public static async Task<string> GenerateSelectAsync(
+		IHtmlGenerator generator, ViewContext viewContext,
+		ModelExpression @for, IList<SelectListItem> @Items, string? @OptionLabel)
 	{
-		var tagBuilder =
-			generator.GenerateSelect
-			(viewContext: viewContext, modelExplorer: @for.ModelExplorer, optionLabel: @OptionLabel,
-			expression: @for.Name, selectList: @Items, allowMultiple: false, htmlAttributes: null);
+		var tagBuilder = generator.GenerateSelect(
+			viewContext: viewContext, modelExplorer: @for.ModelExplorer,
+			optionLabel: @OptionLabel, expression: @for.Name,
+			selectList: @Items, allowMultiple: false, htmlAttributes: null);
 
-		tagBuilder.AddCssClass
-			(value: "form-control");
+		tagBuilder.AddCssClass(value: "form-control");
 
-		var writer =
-			new System.IO.StringWriter();
+		var writer = new StringWriter();
 
-		tagBuilder.WriteTo(writer: writer,
-			encoder: Microsoft.AspNetCore.Razor.TagHelpers.NullHtmlEncoder.Default);
+		tagBuilder.WriteTo(writer: writer, encoder: NullHtmlEncoder.Default);
 
-		var result =
-			writer.ToString();
+		var result = writer.ToString();
 
 		await writer.DisposeAsync();
 

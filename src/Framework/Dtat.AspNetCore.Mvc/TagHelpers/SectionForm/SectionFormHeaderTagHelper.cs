@@ -8,7 +8,7 @@ namespace Dtat.AspNetCore.Mvc.TagHelpers.SectionForm;
 /// Checked
 /// </summary>
 [HtmlTargetElement(tag: "section-form-header",
-	ParentTag = "fieldset",
+	ParentTag = "section-form-fieldset",
 	TagStructure = TagStructure.NormalOrSelfClosing)]
 public class SectionFormHeaderTagHelper : TagHelper
 {

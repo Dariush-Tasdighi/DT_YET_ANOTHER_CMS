@@ -49,9 +49,17 @@ public class SectionFormTagHelper : TagHelper
 		// **************************************************
 
 		// **************************************************
+		var form = new TagBuilder(tagName: "form");
+
+		form.Attributes.Add(key: "method", value: "post");
+
+		form.InnerHtml.AppendHtml(content: divRow);
+		// **************************************************
+
+		// **************************************************
 		output.TagName = null;
 		output.TagMode = TagMode.StartTagAndEndTag;
-		output.Content.SetHtmlContent(htmlContent: divRow);
+		output.Content.SetHtmlContent(htmlContent: form);
 		// **************************************************
 	}
 }

@@ -10,7 +10,8 @@ namespace Dtat.AspNetCore.Mvc.TagHelpers.Buttons;
 	TagStructure = TagStructure.WithoutEndTag)]
 public class ButtonCreateTagHelper : TagHelper
 {
-	public override void Process(TagHelperContext context, TagHelperOutput output)
+	public override void Process
+		(TagHelperContext context, TagHelperOutput output)
 	{
 		// **************************************************
 		var icon = Utility.GetIconCreate();
@@ -30,11 +31,7 @@ public class ButtonCreateTagHelper : TagHelper
 
 		// **************************************************
 		output.TagName = null;
-
-		output.TagMode =
-			Microsoft.AspNetCore.Razor
-			.TagHelpers.TagMode.StartTagAndEndTag;
-
+		output.TagMode = TagMode.StartTagAndEndTag;
 		output.Content.SetHtmlContent(htmlContent: body);
 		// **************************************************
 	}
