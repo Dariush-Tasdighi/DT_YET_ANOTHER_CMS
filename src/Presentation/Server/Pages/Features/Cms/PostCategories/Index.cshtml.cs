@@ -5,6 +5,9 @@ using ViewModels.Pages.Features.Cms.PostCategories;
 
 namespace Server.Pages.Features.Cms.PostCategories;
 
+/// <summary>
+/// https://localhost:7057/Features/Cms/PostCategories/Index
+/// </summary>
 //[Infrastructure.Security.CustomAuthorize(minRoleCode:
 //	Domain.Features.Identity.Enums.RoleEnum.Supervisor)]
 public class IndexModel : BasePageModelWithApplicationDbContext

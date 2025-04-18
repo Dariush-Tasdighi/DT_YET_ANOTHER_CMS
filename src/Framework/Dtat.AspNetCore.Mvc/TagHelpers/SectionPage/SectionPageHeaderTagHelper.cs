@@ -4,25 +4,35 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Dtat.AspNetCore.Mvc.TagHelpers.SectionPage;
 
-[HtmlTargetElement(
-	tag: "section-page-header",
+/// <summary>
+/// Checked
+/// </summary>
+[HtmlTargetElement(tag: "section-page-header",
 	TagStructure = TagStructure.NormalOrSelfClosing)]
 public class SectionPageHeaderTagHelper : TagHelper
 {
-	//public override void Process
-	//	(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext context,
-	//	Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput output)
+	//public override void Process(TagHelperContext context, TagHelperOutput output)
 	//{
 	//	base.Process(context, output);
 	//}
 
-	public async override Task ProcessAsync(
-		TagHelperContext context, TagHelperOutput output)
+	public async override Task ProcessAsync
+		(TagHelperContext context, TagHelperOutput output)
 	{
 		// **************************************************
 		var originalContents =
 			await
 			output.GetChildContentAsync();
+		// **************************************************
+
+		// **************************************************
+		var h3 = new TagBuilder(tagName: "h3");
+
+		h3.AddCssClass(value: "mt-3");
+		h3.AddCssClass(value: "mb-3");
+		h3.AddCssClass(value: "text-center");
+
+		h3.InnerHtml.AppendHtml(content: originalContents);
 		// **************************************************
 
 		// **************************************************
@@ -32,23 +42,14 @@ public class SectionPageHeaderTagHelper : TagHelper
 		};
 
 		horizontalRule.AddCssClass(value: "mt-4");
-		// **************************************************
 
-		// **************************************************
-		var body = new TagBuilder(tagName: "h3");
-
-		body.AddCssClass(value: "mt-3");
-		body.AddCssClass(value: "mb-3");
-		body.AddCssClass(value: "text-center");
-
-		body.InnerHtml.AppendHtml(content: originalContents);
-		//body.InnerHtml.AppendHtml(content: horizontalRule);
+		h3.InnerHtml.AppendHtml(content: horizontalRule);
 		// **************************************************
 
 		// **************************************************
 		output.TagName = null;
 		output.TagMode = TagMode.StartTagAndEndTag;
-		output.Content.SetHtmlContent(htmlContent: body);
+		output.Content.SetHtmlContent(htmlContent: h3);
 		// **************************************************
 	}
 }

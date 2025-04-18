@@ -1,51 +1,55 @@
-﻿namespace Dtat.AspNetCore.Mvc.TagHelpers.Table;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 
-[Microsoft.AspNetCore.Razor.TagHelpers.HtmlTargetElement
-	(tag: "table",
+namespace Dtat.AspNetCore.Mvc.TagHelpers.Table;
+
+/// <summary>
+/// Checked
+/// </summary>
+[HtmlTargetElement(tag: "table",
+	// بر خلاف نمونه‌های قبلی
 	ParentTag = "section-table",
-	TagStructure = Microsoft.AspNetCore.Razor.TagHelpers.TagStructure.NormalOrSelfClosing)]
-public class TableTagHelper :
-	Microsoft.AspNetCore.Razor.TagHelpers.TagHelper
+	TagStructure = TagStructure.NormalOrSelfClosing)]
+public class TableTagHelper : TagHelper
 {
-	public TableTagHelper() : base()
-	{
-	}
-
-	public async override System.Threading.Tasks.Task ProcessAsync
-		(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext context,
-		Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput output)
+	public async override Task ProcessAsync
+		(TagHelperContext context, TagHelperOutput output)
 	{
 		// **************************************************
+		//var originalContents =
+		//	await
+		//	output.GetChildContentAsync()
+		//	;
+
+		// بر خلاف نمونه‌های قبلی
 		var originalContents =
 			(await
 			output.GetChildContentAsync())
 			.GetContent()
 			;
 
-		originalContents =
-			originalContents.Replace
-			("thead", "thead class=\"table-primary text-center\"");
+		originalContents = originalContents.Replace
+			(oldValue: "thead", newValue: "thead class=\"table-primary text-center\"");
 
-		//originalContents =
-		//	originalContents.Replace
-		//	("tbody", "tbody class=\"\"");
-
-		originalContents =
-			originalContents.Replace
-			("tfooter", "tfooter class=\"table-secondary\"");
+		originalContents = originalContents.Replace
+			(oldValue: "tfooter", newValue: "tfooter class=\"table-secondary\"");
 		// **************************************************
 
 		// **************************************************
+		//output.TagName = null;
+
+		// بر خلاف نمونه‌های قبلی
 		output.TagName = "table";
+		output.TagMode = TagMode.StartTagAndEndTag;
 
-		output.TagMode =
-			Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag;
-
-		output.Attributes.SetAttribute
-			(name: "class",
+		// بر خلاف نمونه‌های قبلی
+		output.Attributes.SetAttribute(name: "class",
 			value: "table table-bordered table-sm table-striped table-hover align-items-center");
-		// **************************************************
 
+		//output.Content.SetHtmlContent(htmlContent: divRow);
+
+		// بر خلاف نمونه‌های قبلی
 		output.Content.SetHtmlContent(encoded: originalContents);
+		// **************************************************
 	}
 }

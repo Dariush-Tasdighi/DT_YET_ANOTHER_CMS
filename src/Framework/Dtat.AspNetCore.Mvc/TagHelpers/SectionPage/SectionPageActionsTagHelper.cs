@@ -1,18 +1,18 @@
-﻿namespace Dtat.AspNetCore.Mvc.TagHelpers.SectionPage;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 
-[Microsoft.AspNetCore.Razor.TagHelpers.HtmlTargetElement
-	(tag: "section-page-actions",
-	TagStructure = Microsoft.AspNetCore.Razor.TagHelpers.TagStructure.NormalOrSelfClosing)]
-public class SectionPageActionsTagHelper :
-	Microsoft.AspNetCore.Razor.TagHelpers.TagHelper
+namespace Dtat.AspNetCore.Mvc.TagHelpers.SectionPage;
+
+/// <summary>
+/// Checked
+/// </summary>
+[HtmlTargetElement(tag: "section-page-actions",
+	TagStructure = TagStructure.NormalOrSelfClosing)]
+public class SectionPageActionsTagHelper : TagHelper
 {
-	public SectionPageActionsTagHelper() : base()
-	{
-	}
-
-	public async override System.Threading.Tasks.Task ProcessAsync
-		(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext context,
-		Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput output)
+	public async override Task ProcessAsync
+		(TagHelperContext context, TagHelperOutput output)
 	{
 		// **************************************************
 		var originalContents =
@@ -21,8 +21,7 @@ public class SectionPageActionsTagHelper :
 		// **************************************************
 
 		// **************************************************
-		var divCol =
-			new Microsoft.AspNetCore.Mvc.Rendering.TagBuilder("div");
+		var divCol = new TagBuilder(tagName: "div");
 
 		divCol.AddCssClass(value: "col");
 
@@ -30,8 +29,7 @@ public class SectionPageActionsTagHelper :
 		// **************************************************
 
 		// **************************************************
-		var divRow =
-			new Microsoft.AspNetCore.Mvc.Rendering.TagBuilder("div");
+		var divRow = new TagBuilder(tagName: "div");
 
 		divRow.AddCssClass(value: "row");
 		divRow.AddCssClass(value: "mb-3");
@@ -41,11 +39,7 @@ public class SectionPageActionsTagHelper :
 
 		// **************************************************
 		output.TagName = null;
-
-		output.TagMode =
-			Microsoft.AspNetCore.Razor
-			.TagHelpers.TagMode.StartTagAndEndTag;
-
+		output.TagMode = TagMode.StartTagAndEndTag;
 		output.Content.SetHtmlContent(htmlContent: divRow);
 		// **************************************************
 	}

@@ -1,18 +1,18 @@
-﻿namespace Dtat.AspNetCore.Mvc.TagHelpers.Table;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 
-[Microsoft.AspNetCore.Razor.TagHelpers.HtmlTargetElement
-	(tag: "section-table",
-	TagStructure = Microsoft.AspNetCore.Razor.TagHelpers.TagStructure.NormalOrSelfClosing)]
-public class SectionTableTagHelper :
-	Microsoft.AspNetCore.Razor.TagHelpers.TagHelper
+namespace Dtat.AspNetCore.Mvc.TagHelpers.Table;
+
+/// <summary>
+/// Checked
+/// </summary>
+[HtmlTargetElement(tag: "section-table",
+	TagStructure = TagStructure.NormalOrSelfClosing)]
+public class SectionTableTagHelper : TagHelper
 {
-	public SectionTableTagHelper() : base()
-	{
-	}
-
-	public async override System.Threading.Tasks.Task ProcessAsync
-		(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext context,
-		Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput output)
+	public async override Task ProcessAsync
+		(TagHelperContext context, TagHelperOutput output)
 	{
 		// **************************************************
 		var originalContents =
@@ -21,8 +21,7 @@ public class SectionTableTagHelper :
 		// **************************************************
 
 		// **************************************************
-		var divCol =
-			new Microsoft.AspNetCore.Mvc.Rendering.TagBuilder("div");
+		var divCol = new TagBuilder(tagName: "div");
 
 		divCol.AddCssClass(value: "col");
 		divCol.AddCssClass(value: "table-responsive");
@@ -31,8 +30,7 @@ public class SectionTableTagHelper :
 		// **************************************************
 
 		// **************************************************
-		var divRow =
-			new Microsoft.AspNetCore.Mvc.Rendering.TagBuilder("div");
+		var divRow = new TagBuilder(tagName: "div");
 
 		divRow.AddCssClass(value: "row");
 
@@ -41,11 +39,7 @@ public class SectionTableTagHelper :
 
 		// **************************************************
 		output.TagName = null;
-
-		output.TagMode =
-			Microsoft.AspNetCore.Razor
-			.TagHelpers.TagMode.StartTagAndEndTag;
-
+		output.TagMode = TagMode.StartTagAndEndTag;
 		output.Content.SetHtmlContent(htmlContent: divRow);
 		// **************************************************
 	}
