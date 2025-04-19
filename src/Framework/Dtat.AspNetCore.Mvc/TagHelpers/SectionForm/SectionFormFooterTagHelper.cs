@@ -22,12 +22,12 @@ public class SectionFormFooterTagHelper : TagHelper
 		// **************************************************
 
 		// **************************************************
-		var horizontalRule = new TagBuilder(tagName: "hr")
+		var hr = new TagBuilder(tagName: "hr")
 		{
 			TagRenderMode = TagRenderMode.SelfClosing,
 		};
 
-		horizontalRule.AddCssClass(value: "mt-4");
+		hr.AddCssClass(value: "mt-4");
 		// **************************************************
 
 		// **************************************************
@@ -44,7 +44,8 @@ public class SectionFormFooterTagHelper : TagHelper
 		output.TagMode = TagMode.StartTagAndEndTag;
 		output.Content.SetHtmlContent(htmlContent: div);
 
-		output.PreElement.AppendHtml(htmlContent: horizontalRule);
+		// بر خلاف نمونه‌های قبلی
+		output.PreElement.AppendHtml(htmlContent: hr);
 		// **************************************************
 	}
 }

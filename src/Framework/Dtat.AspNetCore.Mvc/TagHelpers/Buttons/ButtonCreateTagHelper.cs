@@ -4,8 +4,10 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Dtat.AspNetCore.Mvc.TagHelpers.Buttons;
 
-[HtmlTargetElement
-	(tag: "button-create",
+/// <summary>
+/// Checked
+/// </summary>
+[HtmlTargetElement(tag: "button-create",
 	ParentTag = "section-form-buttons",
 	TagStructure = TagStructure.WithoutEndTag)]
 public class ButtonCreateTagHelper : TagHelper
@@ -18,21 +20,21 @@ public class ButtonCreateTagHelper : TagHelper
 		// **************************************************
 
 		// **************************************************
-		var body = new TagBuilder(tagName: "button");
+		var button = new TagBuilder(tagName: "button");
 
-		body.Attributes.Add(key: "type", value: "submit");
+		button.Attributes.Add(key: "type", value: "submit");
 
-		body.AddCssClass(value: "btn");
-		body.AddCssClass(value: "btn-primary");
+		button.AddCssClass(value: "btn");
+		button.AddCssClass(value: "btn-primary");
 
-		body.InnerHtml.AppendHtml(content: icon);
-		body.InnerHtml.Append(unencoded: DataDictionary.Create);
+		button.InnerHtml.AppendHtml(content: icon);
+		button.InnerHtml.Append(unencoded: DataDictionary.Create);
 		// **************************************************
 
 		// **************************************************
 		output.TagName = null;
 		output.TagMode = TagMode.StartTagAndEndTag;
-		output.Content.SetHtmlContent(htmlContent: body);
+		output.Content.SetHtmlContent(htmlContent: button);
 		// **************************************************
 	}
 }

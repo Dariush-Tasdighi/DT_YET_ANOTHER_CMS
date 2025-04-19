@@ -11,7 +11,8 @@ namespace Dtat.AspNetCore.Mvc.TagHelpers.SectionPage;
 	TagStructure = TagStructure.NormalOrSelfClosing)]
 public class SectionPageHeaderTagHelper : TagHelper
 {
-	//public override void Process(TagHelperContext context, TagHelperOutput output)
+	//public override void Process
+	//	(TagHelperContext context, TagHelperOutput output)
 	//{
 	//	base.Process(context, output);
 	//}
@@ -36,14 +37,14 @@ public class SectionPageHeaderTagHelper : TagHelper
 		// **************************************************
 
 		// **************************************************
-		var horizontalRule = new TagBuilder(tagName: "hr")
+		var hr = new TagBuilder(tagName: "hr")
 		{
 			TagRenderMode = TagRenderMode.SelfClosing,
 		};
 
-		horizontalRule.AddCssClass(value: "mt-4");
+		hr.AddCssClass(value: "mt-4");
 
-		h3.InnerHtml.AppendHtml(content: horizontalRule);
+		h3.InnerHtml.AppendHtml(content: hr);
 		// **************************************************
 
 		// **************************************************

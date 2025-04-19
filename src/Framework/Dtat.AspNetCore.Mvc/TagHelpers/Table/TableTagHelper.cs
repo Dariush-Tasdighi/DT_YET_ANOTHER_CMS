@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Dtat.AspNetCore.Mvc.TagHelpers.Table;
@@ -43,8 +44,8 @@ public class TableTagHelper : TagHelper
 		output.TagMode = TagMode.StartTagAndEndTag;
 
 		// بر خلاف نمونه‌های قبلی
-		output.Attributes.SetAttribute(name: "class",
-			value: "table table-bordered table-sm table-striped table-hover align-items-center");
+		var classValue = "table table-bordered table-sm table-striped table-hover align-items-center";
+		output.Attributes.SetAttribute(name: "class", value: classValue);
 
 		//output.Content.SetHtmlContent(htmlContent: divRow);
 

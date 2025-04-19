@@ -22,29 +22,29 @@ public class SectionFormHeaderTagHelper : TagHelper
 		// **************************************************
 
 		// **************************************************
-		var horizontalRule = new TagBuilder(tagName: "hr")
+		var hr = new TagBuilder(tagName: "hr")
 		{
 			TagRenderMode = TagRenderMode.SelfClosing,
 		};
 
-		horizontalRule.AddCssClass(value: "mt-4");
+		hr.AddCssClass(value: "mt-4");
 		// **************************************************
 
 		// **************************************************
-		var body = new TagBuilder(tagName: "legend");
+		var legend = new TagBuilder(tagName: "legend");
 
-		body.AddCssClass(value: "text-center");
+		legend.AddCssClass(value: "text-center");
 
-		body.InnerHtml.AppendHtml(content: originalContents);
+		legend.InnerHtml.AppendHtml(content: originalContents);
 		// **************************************************
 
 		// **************************************************
 		output.TagName = null;
 		output.TagMode = TagMode.StartTagAndEndTag;
-		output.Content.SetHtmlContent(htmlContent: body);
+		output.Content.SetHtmlContent(htmlContent: legend);
 
 		// بر خلاف نمونه‌های قبلی
-		output.PostElement.AppendHtml(htmlContent: horizontalRule);
+		output.PostElement.AppendHtml(htmlContent: hr);
 		// **************************************************
 	}
 }
